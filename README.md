@@ -1,4 +1,4 @@
-# iOSNanodegreeDecideYourOwn
+# iOSNanodegree - DecideYourOwn
 Decide Your Own project
 
 Project Overview
