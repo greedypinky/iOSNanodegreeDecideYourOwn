@@ -1,0 +1,735 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F72F4CA9227FB54500D5D9F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CA8227FB54500D5D9F7 /* AppDelegate.swift */; };
+		F72F4CAE227FB54500D5D9F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72F4CAC227FB54500D5D9F7 /* Main.storyboard */; };
+		F72F4CB1227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CAF227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld */; };
+		F72F4CB3227FB54700D5D9F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72F4CB2227FB54700D5D9F7 /* Assets.xcassets */; };
+		F72F4CB6227FB54700D5D9F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72F4CB4227FB54700D5D9F7 /* LaunchScreen.storyboard */; };
+		F72F4CC1227FB54700D5D9F7 /* MyTripDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CC0227FB54700D5D9F7 /* MyTripDiaryTests.swift */; };
+		F72F4CCC227FB54700D5D9F7 /* MyTripDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CCB227FB54700D5D9F7 /* MyTripDiaryUITests.swift */; };
+		F72F4CDD227FDE4200D5D9F7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CDC227FDE4200D5D9F7 /* DataController.swift */; };
+		F72F4CE1227FDE9D00D5D9F7 /* MyTripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE0227FDE9D00D5D9F7 /* MyTripsTableViewController.swift */; };
+		F72F4CE3227FDEC400D5D9F7 /* DaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE2227FDEC400D5D9F7 /* DaysTableViewController.swift */; };
+		F72F4CE7227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE6227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift */; };
+		F72F4CE9227FDFA700D5D9F7 /* ItineraryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE8227FDFA700D5D9F7 /* ItineraryDetailViewController.swift */; };
+		F72F4CEF227FE0F300D5D9F7 /* FlickerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CEE227FE0F300D5D9F7 /* FlickerAPIRequest.swift */; };
+		F72F4CF1227FE14400D5D9F7 /* FlickerFetchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CF0227FE14400D5D9F7 /* FlickerFetchResponse.swift */; };
+		F72F4CF3227FE16900D5D9F7 /* FlickerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CF2227FE16900D5D9F7 /* FlickerRequest.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F72F4CBD227FB54700D5D9F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F72F4C9D227FB54400D5D9F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F72F4CA4227FB54400D5D9F7;
+			remoteInfo = MyTripDiary;
+		};
+		F72F4CC8227FB54700D5D9F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F72F4C9D227FB54400D5D9F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F72F4CA4227FB54400D5D9F7;
+			remoteInfo = MyTripDiary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F72F4CA5227FB54400D5D9F7 /* MyTripDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTripDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F72F4CA8227FB54500D5D9F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F72F4CAD227FB54500D5D9F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F72F4CB0227FB54500D5D9F7 /* MyTripDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyTripDiary.xcdatamodel; sourceTree = "<group>"; };
+		F72F4CB2227FB54700D5D9F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F72F4CB5227FB54700D5D9F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F72F4CB7227FB54700D5D9F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F72F4CBC227FB54700D5D9F7 /* MyTripDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTripDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F72F4CC0227FB54700D5D9F7 /* MyTripDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripDiaryTests.swift; sourceTree = "<group>"; };
+		F72F4CC2227FB54700D5D9F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F72F4CC7227FB54700D5D9F7 /* MyTripDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTripDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F72F4CCB227FB54700D5D9F7 /* MyTripDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripDiaryUITests.swift; sourceTree = "<group>"; };
+		F72F4CCD227FB54700D5D9F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F72F4CDC227FDE4200D5D9F7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		F72F4CE0227FDE9D00D5D9F7 /* MyTripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsTableViewController.swift; sourceTree = "<group>"; };
+		F72F4CE2227FDEC400D5D9F7 /* DaysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysTableViewController.swift; sourceTree = "<group>"; };
+		F72F4CE6227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		F72F4CE8227FDFA700D5D9F7 /* ItineraryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDetailViewController.swift; sourceTree = "<group>"; };
+		F72F4CEE227FE0F300D5D9F7 /* FlickerAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerAPIRequest.swift; sourceTree = "<group>"; };
+		F72F4CF0227FE14400D5D9F7 /* FlickerFetchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerFetchResponse.swift; sourceTree = "<group>"; };
+		F72F4CF2227FE16900D5D9F7 /* FlickerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerRequest.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F72F4CA2227FB54400D5D9F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F72F4CB9227FB54700D5D9F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F72F4CC4227FB54700D5D9F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F72F4C9C227FB54400D5D9F7 = {
+			isa = PBXGroup;
+			children = (
+				F72F4CA7227FB54400D5D9F7 /* MyTripDiary */,
+				F72F4CBF227FB54700D5D9F7 /* MyTripDiaryTests */,
+				F72F4CCA227FB54700D5D9F7 /* MyTripDiaryUITests */,
+				F72F4CA6227FB54400D5D9F7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F72F4CA6227FB54400D5D9F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CA5227FB54400D5D9F7 /* MyTripDiary.app */,
+				F72F4CBC227FB54700D5D9F7 /* MyTripDiaryTests.xctest */,
+				F72F4CC7227FB54700D5D9F7 /* MyTripDiaryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F72F4CA7227FB54400D5D9F7 /* MyTripDiary */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CEA227FDFBE00D5D9F7 /* Modal */,
+				F72F4CDB227FDE1F00D5D9F7 /* Network */,
+				F72F4CD9227FDE0900D5D9F7 /* Controller */,
+				F72F4CA8227FB54500D5D9F7 /* AppDelegate.swift */,
+				F72F4CAC227FB54500D5D9F7 /* Main.storyboard */,
+				F72F4CB2227FB54700D5D9F7 /* Assets.xcassets */,
+				F72F4CB4227FB54700D5D9F7 /* LaunchScreen.storyboard */,
+				F72F4CB7227FB54700D5D9F7 /* Info.plist */,
+				F72F4CAF227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld */,
+			);
+			path = MyTripDiary;
+			sourceTree = "<group>";
+		};
+		F72F4CBF227FB54700D5D9F7 /* MyTripDiaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CC0227FB54700D5D9F7 /* MyTripDiaryTests.swift */,
+				F72F4CC2227FB54700D5D9F7 /* Info.plist */,
+			);
+			path = MyTripDiaryTests;
+			sourceTree = "<group>";
+		};
+		F72F4CCA227FB54700D5D9F7 /* MyTripDiaryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CCB227FB54700D5D9F7 /* MyTripDiaryUITests.swift */,
+				F72F4CCD227FB54700D5D9F7 /* Info.plist */,
+			);
+			path = MyTripDiaryUITests;
+			sourceTree = "<group>";
+		};
+		F72F4CD9227FDE0900D5D9F7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CE0227FDE9D00D5D9F7 /* MyTripsTableViewController.swift */,
+				F72F4CE2227FDEC400D5D9F7 /* DaysTableViewController.swift */,
+				F72F4CE6227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift */,
+				F72F4CE8227FDFA700D5D9F7 /* ItineraryDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F72F4CDA227FDE1300D5D9F7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CDC227FDE4200D5D9F7 /* DataController.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F72F4CDB227FDE1F00D5D9F7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CED227FE0D200D5D9F7 /* FlickerRequest */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F72F4CEA227FDFBE00D5D9F7 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CEB227FE07100D5D9F7 /* Response */,
+				F72F4CEC227FE08100D5D9F7 /* Request */,
+				F72F4CDA227FDE1300D5D9F7 /* Data */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		F72F4CEB227FE07100D5D9F7 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CF0227FE14400D5D9F7 /* FlickerFetchResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		F72F4CEC227FE08100D5D9F7 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CF2227FE16900D5D9F7 /* FlickerRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		F72F4CED227FE0D200D5D9F7 /* FlickerRequest */ = {
+			isa = PBXGroup;
+			children = (
+				F72F4CEE227FE0F300D5D9F7 /* FlickerAPIRequest.swift */,
+			);
+			path = FlickerRequest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F72F4CA4227FB54400D5D9F7 /* MyTripDiary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F72F4CD0227FB54700D5D9F7 /* Build configuration list for PBXNativeTarget "MyTripDiary" */;
+			buildPhases = (
+				F72F4CA1227FB54400D5D9F7 /* Sources */,
+				F72F4CA2227FB54400D5D9F7 /* Frameworks */,
+				F72F4CA3227FB54400D5D9F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyTripDiary;
+			productName = MyTripDiary;
+			productReference = F72F4CA5227FB54400D5D9F7 /* MyTripDiary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F72F4CBB227FB54700D5D9F7 /* MyTripDiaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F72F4CD3227FB54700D5D9F7 /* Build configuration list for PBXNativeTarget "MyTripDiaryTests" */;
+			buildPhases = (
+				12A0C8B1C638F8C3E4395F6C /* [CP] Check Pods Manifest.lock */,
+				F72F4CB8227FB54700D5D9F7 /* Sources */,
+				F72F4CB9227FB54700D5D9F7 /* Frameworks */,
+				F72F4CBA227FB54700D5D9F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F72F4CBE227FB54700D5D9F7 /* PBXTargetDependency */,
+			);
+			name = MyTripDiaryTests;
+			productName = MyTripDiaryTests;
+			productReference = F72F4CBC227FB54700D5D9F7 /* MyTripDiaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F72F4CC6227FB54700D5D9F7 /* MyTripDiaryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F72F4CD6227FB54700D5D9F7 /* Build configuration list for PBXNativeTarget "MyTripDiaryUITests" */;
+			buildPhases = (
+				082C3ED7B481135F18A7F940 /* [CP] Check Pods Manifest.lock */,
+				F72F4CC3227FB54700D5D9F7 /* Sources */,
+				F72F4CC4227FB54700D5D9F7 /* Frameworks */,
+				F72F4CC5227FB54700D5D9F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F72F4CC9227FB54700D5D9F7 /* PBXTargetDependency */,
+			);
+			name = MyTripDiaryUITests;
+			productName = MyTripDiaryUITests;
+			productReference = F72F4CC7227FB54700D5D9F7 /* MyTripDiaryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F72F4C9D227FB54400D5D9F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Rita's company";
+				TargetAttributes = {
+					F72F4CA4227FB54400D5D9F7 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					F72F4CBB227FB54700D5D9F7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F72F4CA4227FB54400D5D9F7;
+					};
+					F72F4CC6227FB54700D5D9F7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F72F4CA4227FB54400D5D9F7;
+					};
+				};
+			};
+			buildConfigurationList = F72F4CA0227FB54400D5D9F7 /* Build configuration list for PBXProject "MyTripDiary" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F72F4C9C227FB54400D5D9F7;
+			productRefGroup = F72F4CA6227FB54400D5D9F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F72F4CA4227FB54400D5D9F7 /* MyTripDiary */,
+				F72F4CBB227FB54700D5D9F7 /* MyTripDiaryTests */,
+				F72F4CC6227FB54700D5D9F7 /* MyTripDiaryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F72F4CA3227FB54400D5D9F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F72F4CB6227FB54700D5D9F7 /* LaunchScreen.storyboard in Resources */,
+				F72F4CB3227FB54700D5D9F7 /* Assets.xcassets in Resources */,
+				F72F4CAE227FB54500D5D9F7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F72F4CBA227FB54700D5D9F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F72F4CC5227FB54700D5D9F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		082C3ED7B481135F18A7F940 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyTripDiaryUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		12A0C8B1C638F8C3E4395F6C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyTripDiaryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F72F4CA1227FB54400D5D9F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F72F4CB1227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld in Sources */,
+				F72F4CDD227FDE4200D5D9F7 /* DataController.swift in Sources */,
+				F72F4CE3227FDEC400D5D9F7 /* DaysTableViewController.swift in Sources */,
+				F72F4CE7227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift in Sources */,
+				F72F4CF3227FE16900D5D9F7 /* FlickerRequest.swift in Sources */,
+				F72F4CE1227FDE9D00D5D9F7 /* MyTripsTableViewController.swift in Sources */,
+				F72F4CF1227FE14400D5D9F7 /* FlickerFetchResponse.swift in Sources */,
+				F72F4CA9227FB54500D5D9F7 /* AppDelegate.swift in Sources */,
+				F72F4CE9227FDFA700D5D9F7 /* ItineraryDetailViewController.swift in Sources */,
+				F72F4CEF227FE0F300D5D9F7 /* FlickerAPIRequest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F72F4CB8227FB54700D5D9F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F72F4CC1227FB54700D5D9F7 /* MyTripDiaryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F72F4CC3227FB54700D5D9F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F72F4CCC227FB54700D5D9F7 /* MyTripDiaryUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F72F4CBE227FB54700D5D9F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F72F4CA4227FB54400D5D9F7 /* MyTripDiary */;
+			targetProxy = F72F4CBD227FB54700D5D9F7 /* PBXContainerItemProxy */;
+		};
+		F72F4CC9227FB54700D5D9F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F72F4CA4227FB54400D5D9F7 /* MyTripDiary */;
+			targetProxy = F72F4CC8227FB54700D5D9F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F72F4CAC227FB54500D5D9F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F72F4CAD227FB54500D5D9F7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F72F4CB4227FB54700D5D9F7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F72F4CB5227FB54700D5D9F7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F72F4CCE227FB54700D5D9F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F72F4CCF227FB54700D5D9F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F72F4CD1227FB54700D5D9F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyTripDiary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F72F4CD2227FB54700D5D9F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyTripDiary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F72F4CD4227FB54700D5D9F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyTripDiaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiaryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyTripDiary.app/MyTripDiary";
+			};
+			name = Debug;
+		};
+		F72F4CD5227FB54700D5D9F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyTripDiaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiaryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyTripDiary.app/MyTripDiary";
+			};
+			name = Release;
+		};
+		F72F4CD7227FB54700D5D9F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyTripDiaryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiaryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyTripDiary;
+			};
+			name = Debug;
+		};
+		F72F4CD8227FB54700D5D9F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyTripDiaryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiaryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyTripDiary;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F72F4CA0227FB54400D5D9F7 /* Build configuration list for PBXProject "MyTripDiary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F72F4CCE227FB54700D5D9F7 /* Debug */,
+				F72F4CCF227FB54700D5D9F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F72F4CD0227FB54700D5D9F7 /* Build configuration list for PBXNativeTarget "MyTripDiary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F72F4CD1227FB54700D5D9F7 /* Debug */,
+				F72F4CD2227FB54700D5D9F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F72F4CD3227FB54700D5D9F7 /* Build configuration list for PBXNativeTarget "MyTripDiaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F72F4CD4227FB54700D5D9F7 /* Debug */,
+				F72F4CD5227FB54700D5D9F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F72F4CD6227FB54700D5D9F7 /* Build configuration list for PBXNativeTarget "MyTripDiaryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F72F4CD7227FB54700D5D9F7 /* Debug */,
+				F72F4CD8227FB54700D5D9F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F72F4CAF227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F72F4CB0227FB54500D5D9F7 /* MyTripDiary.xcdatamodel */,
+			);
+			currentVersion = F72F4CB0227FB54500D5D9F7 /* MyTripDiary.xcdatamodel */;
+			path = MyTripDiary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F72F4C9D227FB54400D5D9F7 /* Project object */;
+}
