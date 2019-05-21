@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItineraryDetailViewController: UIViewController {
+class DayDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

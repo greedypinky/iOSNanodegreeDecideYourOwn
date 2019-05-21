@@ -15,7 +15,6 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
     var noDataLabel:UILabel! // show no data when no trip data
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTrip: UIToolbar!
-    
     var dataController:DataController {
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -35,7 +34,10 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
         tableView.dataSource = self
         tableView.delegate = self
         navigationItem.title = "My Trips"
-        setupFetchedResultsController()
+        setEmptyMessage("No Trip yet!")
+        setActivityIndicator()
+        //activityView.center = CGPoint(tableView.frame.size., tableView.frame.size.width/2)
+        //setupFetchedResultsController()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,14 +49,18 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // when user click back button to go back to this view again
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        indicator.startAnimating()
+        
         setupFetchedResultsController()
         if let indexPath = tableView.indexPathForSelectedRow {
+            // deselect the row when table re-appear
             tableView.deselectRow(at: indexPath, animated: false)
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
+        
+
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -73,7 +79,7 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         let numOfSection = fetchedResultsController.sections?.count ?? 0
-         print("number of section \(numOfSection)")
+        print("number of section \(numOfSection)")
         return numOfSection
     }
 
@@ -190,6 +196,7 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] action in
             if let name = alert.textFields?.first?.text, let desc = alert.textFields?.last?.text {
+                // save action will add the trip to core data
                 self?.addTripToCoreData(name: name, desc:desc)
             }
         }
@@ -246,7 +253,7 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
     
     
     
-    func getActivityIndicator() {
+    func setActivityIndicator() {
         indicator.color = .black
             indicator.frame = CGRect(x: 0.0, y: 0.0, width: 10.0, height: 10.0)
         indicator.center = tableView.center
@@ -309,6 +316,10 @@ extension MyTripsTableViewController:NSFetchedResultsControllerDelegate {
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
+            
+            if (fetchedResultsController.fetchedObjects?.count)! > 0 {
+                resetTableBackgroundView()
+            }
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }

@@ -12,7 +12,7 @@ import CoreData
 class DaysTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
-    
+    var rightBarButton:UIBarButtonItem?
     var trip:Trip!
     var fetchedResultsController:NSFetchedResultsController<Day>!
     var dataController:DataController {
@@ -31,7 +31,7 @@ class DaysTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //setupFetchedResultsController()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,16 +39,35 @@ class DaysTableViewController: UIViewController, UITableViewDelegate, UITableVie
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupFetchedResultsController()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        fetchedResultsController = nil
+    }
+    
+    private func addNavigationButton(){
+        rightBarButton = UIBarButtonItem(image: nil, style: UIBarButtonItem.Style.plain, target:self, action: #selector(add))
+        rightBarButton?.title = "Add"
+        navigationItem.setRightBarButton(rightBarButton, animated: false)
+    }
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        let numOfSection = fetchedResultsController.sections?.count ?? 0
+        print("number of section \(numOfSection)")
+        return numOfSection
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        print("number of objects \(numOfRows) in section \(section)")
+        return numOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,6 +76,7 @@ class DaysTableViewController: UIViewController, UITableViewDelegate, UITableVie
         var label:String = ""
         if let date = day.date {
             let dayWithFormat = dateFormatter.string(from: date)
+            // show Day 1 05/12/2019
             label = "Day \(indexPath) \(dayWithFormat)"
             
         } else {
@@ -84,17 +104,20 @@ class DaysTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("editing style is? \(editingStyle)")
+        switch editingStyle {
+            // delete the row
+            case .delete:
+                print("In delete case >>>>>>")
+                deleteDay(at: indexPath)
+            default:()
+        }
+
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -138,14 +161,21 @@ class DaysTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    @objc func add() {
+        // TODO: We do not have a create day page yet you idiot!!
+    
+    }
     // add a new day to core data
     private func addDay(date:Date, summary:String) {
        let day = Day(context: dataController.viewContext)
        day.date = date
        day.summary = summary
-       day.trip = trip // must set the trip, otherwise becomes an ophran day
+       day.trip = trip // must set the trip, otherwise cannot create relationship with the Trip object
        try? dataController.viewContext.save()
     }
+    
+   
+    
 
     // get the object at indexpath and delete from the core data
     private func deleteDay(at indexPath:IndexPath) {
@@ -153,6 +183,25 @@ class DaysTableViewController: UIViewController, UITableViewDelegate, UITableVie
         dataController.viewContext.delete(dayToDelete)
         try? dataController.viewContext.save()
     }
+    
+    func setEmptyMessage(_ message: String) {
+        let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        noDataLabel.text = message
+        noDataLabel.textColor = .black
+        noDataLabel.numberOfLines = 0;
+        noDataLabel.textAlignment = .center;
+        noDataLabel.font = UIFont.systemFont(ofSize: 18.0)
+        noDataLabel.sizeToFit()
+        
+        tableView.backgroundView = noDataLabel;
+        tableView.separatorStyle = .none;
+    }
+    
+    func resetTableBackgroundView() {
+        tableView.backgroundView = nil
+        tableView.separatorStyle = .singleLine
+    }
+    
 }
 
 // MARK: NSFetchedResultsControllerDelete to keep the tableview in sync with the core data update
@@ -163,9 +212,11 @@ extension DaysTableViewController:NSFetchedResultsControllerDelegate {
         switch type {
         case .insert:
             // Only insert uses newIndexPath!
+            print("didChange delegate callback: insert into newIndexPath \(newIndexPath)")
             tableView.insertRows(at: [newIndexPath!], with: .fade)
             break
         case .delete:
+             print("didChange delegate callback: delete at indexPath \(indexPath)")
             tableView.deleteRows(at: [indexPath!], with: .fade)
             break
         case .update:
@@ -178,7 +229,9 @@ extension DaysTableViewController:NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         let indexSet = IndexSet(integer: sectionIndex)
         switch type {
-        case .insert: tableView.insertSections(indexSet, with: .fade)
+        case .insert:
+            print("didChange delegate callback: insert section \(sectionIndex)")
+            tableView.insertSections(indexSet, with: .fade)
         case .delete: tableView.deleteSections(indexSet, with: .fade)
         case .update, .move:
             fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")

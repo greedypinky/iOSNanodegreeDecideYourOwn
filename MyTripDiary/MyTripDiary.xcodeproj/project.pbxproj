@@ -21,10 +21,11 @@
 		F72F4CE1227FDE9D00D5D9F7 /* MyTripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE0227FDE9D00D5D9F7 /* MyTripsTableViewController.swift */; };
 		F72F4CE3227FDEC400D5D9F7 /* DaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE2227FDEC400D5D9F7 /* DaysTableViewController.swift */; };
 		F72F4CE7227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE6227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift */; };
-		F72F4CE9227FDFA700D5D9F7 /* ItineraryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE8227FDFA700D5D9F7 /* ItineraryDetailViewController.swift */; };
+		F72F4CE9227FDFA700D5D9F7 /* DayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CE8227FDFA700D5D9F7 /* DayDetailViewController.swift */; };
 		F72F4CEF227FE0F300D5D9F7 /* FlickerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CEE227FE0F300D5D9F7 /* FlickerAPIRequest.swift */; };
 		F72F4CF1227FE14400D5D9F7 /* FlickerFetchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CF0227FE14400D5D9F7 /* FlickerFetchResponse.swift */; };
 		F72F4CF3227FE16900D5D9F7 /* FlickerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CF2227FE16900D5D9F7 /* FlickerRequest.swift */; };
+		F7E0E1A62293D50E00DC31CC /* CreateDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E0E1A52293D50E00DC31CC /* CreateDayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +66,11 @@
 		F72F4CE0227FDE9D00D5D9F7 /* MyTripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsTableViewController.swift; sourceTree = "<group>"; };
 		F72F4CE2227FDEC400D5D9F7 /* DaysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysTableViewController.swift; sourceTree = "<group>"; };
 		F72F4CE6227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
-		F72F4CE8227FDFA700D5D9F7 /* ItineraryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDetailViewController.swift; sourceTree = "<group>"; };
+		F72F4CE8227FDFA700D5D9F7 /* DayDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailViewController.swift; sourceTree = "<group>"; };
 		F72F4CEE227FE0F300D5D9F7 /* FlickerAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerAPIRequest.swift; sourceTree = "<group>"; };
 		F72F4CF0227FE14400D5D9F7 /* FlickerFetchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerFetchResponse.swift; sourceTree = "<group>"; };
 		F72F4CF2227FE16900D5D9F7 /* FlickerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerRequest.swift; sourceTree = "<group>"; };
+		F7E0E1A52293D50E00DC31CC /* CreateDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +185,8 @@
 				F72F4CE0227FDE9D00D5D9F7 /* MyTripsTableViewController.swift */,
 				F72F4CE2227FDEC400D5D9F7 /* DaysTableViewController.swift */,
 				F72F4CE6227FDF5B00D5D9F7 /* PhotosCollectionViewController.swift */,
-				F72F4CE8227FDFA700D5D9F7 /* ItineraryDetailViewController.swift */,
+				F72F4CE8227FDFA700D5D9F7 /* DayDetailViewController.swift */,
+				F7E0E1A52293D50E00DC31CC /* CreateDayViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -428,7 +431,8 @@
 				F72F4CE1227FDE9D00D5D9F7 /* MyTripsTableViewController.swift in Sources */,
 				F72F4CF1227FE14400D5D9F7 /* FlickerFetchResponse.swift in Sources */,
 				F72F4CA9227FB54500D5D9F7 /* AppDelegate.swift in Sources */,
-				F72F4CE9227FDFA700D5D9F7 /* ItineraryDetailViewController.swift in Sources */,
+				F72F4CE9227FDFA700D5D9F7 /* DayDetailViewController.swift in Sources */,
+				F7E0E1A62293D50E00DC31CC /* CreateDayViewController.swift in Sources */,
 				D801F1AE228F6F690089113D /* DayCell.swift in Sources */,
 				F72F4CEF227FE0F300D5D9F7 /* FlickerAPIRequest.swift in Sources */,
 			);
