@@ -12,7 +12,7 @@ import CoreData
 
 class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
+    var noDataLabel:UILabel! // show no data when no trip data
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTrip: UIToolbar!
     
@@ -26,6 +26,8 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
     
     // results object
     var fetchedResultsController:NSFetchedResultsController<Trip>!
+    // activity indicator
+    var indicator = UIActivityIndicatorView()
     
    
     override func viewDidLoad() {
@@ -44,8 +46,20 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
+    // when user click back button to go back to this view again
+    
     override func viewWillAppear(_ animated: Bool) {
-        //
+        super.viewWillAppear(animated)
+        setupFetchedResultsController()
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        fetchedResultsController = nil
     }
 
     @IBAction func addTripFromToolBar(_ sender: Any) {
@@ -58,21 +72,30 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return fetchedResultsController.sections?.count ?? 0
+        let numOfSection = fetchedResultsController.sections?.count ?? 0
+         print("number of section \(numOfSection)")
+        return numOfSection
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        print("number of objects \(numOfRows) in section \(section)")
+        return numOfRows
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let trip = fetchedResultsController.object(at: indexPath)
         // Default cell content already have the label, the detail and the image
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TripCell
         cell.textLabel?.text = trip.name
         cell.detailTextLabel?.text = trip.desc
+        
+        if let count = trip.days?.count {
+            let pageString = count == 1 ? "day" : "days"
+            //cell.pageCountLabel.text = "\(count) \(pageString)"
+        }
         
         //
         //        // Configure cell
@@ -90,7 +113,9 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         // delete the row
-        case .delete: deleteTripAtIndexPath(indexpath: indexPath)
+        case .delete:
+            print("editing style is? ¥(editingStyle)")
+            deleteTripAtIndexPath(indexpath: indexPath)
         default:()
         }
     }
@@ -219,7 +244,7 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
         tableView.separatorStyle = .singleLine
     }
     
-    var indicator = UIActivityIndicatorView()
+    
     
     func getActivityIndicator() {
         indicator.color = .black
@@ -307,7 +332,26 @@ extension MyTripsTableViewController:NSFetchedResultsControllerDelegate {
         try! dataController.viewContext.save()
     }
 
-  
+    private func prepareNoDataLabel() {
+        let frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height)
+        noDataLabel = UILabel(frame: frame)
+        view.addSubview(noDataLabel)
+        noDataLabel.text = "No Trip!"
+        noDataLabel.textAlignment = NSTextAlignment.center
+        noDataLabel.font = UIFont.systemFont(ofSize: 18.0)
+        noDataLabel.textColor = .black
+        noDataLabel.sizeToFit()
+    }
+    
+    private func showNoDataLabel(show:Bool) {
+        if show {
+            noDataLabel.isHidden = false
+            tableView.backgroundView = noDataLabel
+        } else {
+            noDataLabel.isHidden = true
+            tableView.backgroundView = nil
+        }
+    }
 }
 
 
