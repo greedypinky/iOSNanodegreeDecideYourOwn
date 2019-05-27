@@ -32,7 +32,10 @@ class FlickerAPIRequest {
                 let format = URLQueryItem(name: "format", value: "json")
                 let nojsoncallback = URLQueryItem(name: "nojsoncallback", value: "1")
                 let per_page = URLQueryItem(name: "per_page", value: "\(per_page)")
-                urlComponents.queryItems = [method,apikey,latitude,longitude,format,nojsoncallback,per_page]
+                // if we use user's id parameter : user_id otherwise will get everybody's public photos will be searched.
+                let user_id = URLQueryItem(name: "user_id", value: "")
+                urlComponents.queryItems = [method,apikey,latitude,longitude,format,nojsoncallback,per_page,user_id]
+                // urlComponents.queryItems = [method,apikey,latitude,longitude,format,nojsoncallback,per_page]
                 return urlComponents.url!.absoluteString
                 
             case let .getPhoto(id, secret, farmid, serverid):

@@ -1,55 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYn-cn-1MM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYn-cn-1MM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Days Table View Controller-->
-        <scene sceneID="yex-XJ-RhA">
-            <objects>
-                <tableViewController id="UNQ-E8-lSh" customClass="DaysTableViewController" customModule="MyTripDiary" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="G51-um-M6y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="xSp-hw-kbr" customClass="DayCell" customModule="MyTripDiary" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xSp-hw-kbr" id="xiV-Bg-Bzh">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8j-RL-NWw">
-                                            <rect key="frame" x="149" y="11" width="38" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="UNQ-E8-lSh" id="9Ee-4U-ykd"/>
-                            <outlet property="delegate" destination="UNQ-E8-lSh" id="9xV-VK-NUV"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="tableView" destination="G51-um-M6y" id="fSv-uu-Q3k"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Adf-gg-d4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="839" y="-164"/>
-        </scene>
         <!--My Trips Table View Controller-->
         <scene sceneID="zIq-Uh-Ap9">
             <objects>
@@ -88,6 +48,7 @@
                                         <connections>
                                             <outlet property="detail" destination="MYZ-Lf-QvC" id="leV-sM-oez"/>
                                             <outlet property="title" destination="vHJ-6b-nOR" id="ykf-gO-fCR"/>
+                                            <segue destination="94G-Wm-GY9" kind="show" identifier="toDayList" id="H42-dY-FH2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -119,12 +80,11 @@
                     <connections>
                         <outlet property="addTrip" destination="8pk-ce-2Cc" id="4C8-AC-m0y"/>
                         <outlet property="tableView" destination="B8C-ax-rH1" id="Wj6-X4-lUM"/>
-                        <segue destination="UNQ-E8-lSh" kind="show" identifier="showDays" id="yEG-0O-bYG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUc-kM-raC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="-163"/>
+            <point key="canvasLocation" x="223" y="-164"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PRN-fP-dTN">
@@ -143,6 +103,145 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7M-83-blZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-745" y="-164"/>
+        </scene>
+        <!--Days Table View Controller-->
+        <scene sceneID="DSk-a8-sf7">
+            <objects>
+                <viewController id="94G-Wm-GY9" customClass="DaysTableViewController" customModule="MyTripDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rh1-53-hXK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xHw-mK-Efe">
+                                <rect key="frame" x="20" y="84" width="335" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Zaw-FQ-SlA" customClass="DayCell" customModule="MyTripDiary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zaw-FQ-SlA" id="kWj-fd-smp">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wu7-yk-DDp">
+                                                    <rect key="frame" x="146" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xHw-mK-Efe" firstAttribute="top" secondItem="dH4-0N-UMt" secondAttribute="top" constant="20" id="522-12-enB"/>
+                            <constraint firstItem="xHw-mK-Efe" firstAttribute="leading" secondItem="dH4-0N-UMt" secondAttribute="leading" constant="20" id="N3G-3K-nvh"/>
+                            <constraint firstItem="dH4-0N-UMt" firstAttribute="bottom" secondItem="xHw-mK-Efe" secondAttribute="bottom" constant="20" id="aic-JX-mdH"/>
+                            <constraint firstItem="dH4-0N-UMt" firstAttribute="trailing" secondItem="xHw-mK-Efe" secondAttribute="trailing" constant="20" id="kbn-O7-j9V"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dH4-0N-UMt"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="8ev-Jz-gbf"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="xHw-mK-Efe" id="y7E-7C-TV9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWX-Of-anx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050" y="-164"/>
+        </scene>
+        <!--Create Day View Controller-->
+        <scene sceneID="Dzm-zQ-Zld">
+            <objects>
+                <viewController storyboardIdentifier="createDayController" id="8rw-gH-4EK" customClass="CreateDayViewController" customModule="MyTripDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5re-Wb-dGL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IRh-jg-Ici">
+                                <rect key="frame" x="10" y="74" width="375" height="79"/>
+                                <date key="date" timeIntervalSinceReferenceDate="580198087.36024904">
+                                    <!--2019-05-22 06:08:07 +0000-->
+                                </date>
+                            </datePicker>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kTk-AW-tuU">
+                                <rect key="frame" x="10" y="393" width="355" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="kuZ-eN-Wcz"/>
+                                </constraints>
+                            </mapView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WZz-9Q-tqG">
+                                <rect key="frame" x="10" y="173" width="355" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="RO2-Hg-raf"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmB-hq-gGX">
+                                <rect key="frame" x="10" y="643" width="355" height="14"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveChanges:" destination="8rw-gH-4EK" eventType="touchUpInside" id="7Ov-0m-JBa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IRh-jg-Ici" firstAttribute="trailing" secondItem="L9r-0B-dgg" secondAttribute="trailing" constant="10" id="0SF-50-frV"/>
+                            <constraint firstItem="fmB-hq-gGX" firstAttribute="leading" secondItem="L9r-0B-dgg" secondAttribute="leading" constant="10" id="2wx-bx-E0g"/>
+                            <constraint firstItem="L9r-0B-dgg" firstAttribute="bottom" secondItem="fmB-hq-gGX" secondAttribute="bottom" constant="10" id="4mt-VK-16u"/>
+                            <constraint firstItem="L9r-0B-dgg" firstAttribute="trailing" secondItem="kTk-AW-tuU" secondAttribute="trailing" constant="10" id="Aae-Qw-Scm"/>
+                            <constraint firstItem="WZz-9Q-tqG" firstAttribute="top" secondItem="5re-Wb-dGL" secondAttribute="top" constant="173" id="Bpc-qY-1de"/>
+                            <constraint firstItem="IRh-jg-Ici" firstAttribute="leading" secondItem="L9r-0B-dgg" secondAttribute="leading" constant="10" id="CoQ-h9-AeW"/>
+                            <constraint firstItem="kTk-AW-tuU" firstAttribute="leading" secondItem="L9r-0B-dgg" secondAttribute="leading" constant="10" id="EFc-Lq-RJ0"/>
+                            <constraint firstItem="IRh-jg-Ici" firstAttribute="top" secondItem="L9r-0B-dgg" secondAttribute="top" constant="10" id="Hts-rb-cpq"/>
+                            <constraint firstItem="L9r-0B-dgg" firstAttribute="trailing" secondItem="fmB-hq-gGX" secondAttribute="trailing" constant="10" id="M7T-a4-rlw"/>
+                            <constraint firstItem="WZz-9Q-tqG" firstAttribute="top" secondItem="IRh-jg-Ici" secondAttribute="bottom" constant="20" id="TyB-C0-CAp"/>
+                            <constraint firstItem="fmB-hq-gGX" firstAttribute="top" secondItem="kTk-AW-tuU" secondAttribute="bottom" id="Xmw-0w-K6Q"/>
+                            <constraint firstItem="WZz-9Q-tqG" firstAttribute="leading" secondItem="L9r-0B-dgg" secondAttribute="leading" constant="10" id="YBb-a5-BnQ"/>
+                            <constraint firstItem="kTk-AW-tuU" firstAttribute="top" secondItem="WZz-9Q-tqG" secondAttribute="bottom" constant="20" id="cxy-Yx-A8o"/>
+                            <constraint firstItem="L9r-0B-dgg" firstAttribute="trailing" secondItem="WZz-9Q-tqG" secondAttribute="trailing" constant="10" id="hbi-Lq-OnD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L9r-0B-dgg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MIF-s1-wk8"/>
+                    <connections>
+                        <outlet property="dataPicker" destination="IRh-jg-Ici" id="XsH-gm-uCx"/>
+                        <outlet property="mapView" destination="kTk-AW-tuU" id="d4F-Ng-TBF"/>
+                        <outlet property="saveButton" destination="fmB-hq-gGX" id="giS-Bj-lba"/>
+                        <outlet property="summary" destination="WZz-9Q-tqG" id="CLK-NZ-T6p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V5E-v7-aah" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1961" y="538"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tcd-q6-YgM">
+            <objects>
+                <navigationController storyboardIdentifier="createDayNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gue-UN-kdz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4i9-ry-DhB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rw-gH-4EK" kind="relationship" relationship="rootViewController" id="KGs-3F-d72"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JGy-rq-4aZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1118" y="539"/>
         </scene>
     </scenes>
     <resources>

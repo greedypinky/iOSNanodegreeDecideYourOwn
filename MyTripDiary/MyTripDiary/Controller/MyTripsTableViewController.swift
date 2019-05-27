@@ -9,7 +9,10 @@
 import UIKit
 import CoreData
 
-
+// TODO: persistence requirement:-
+// Aside from your primary app state, you should find some additional state that can be stored outside of Core Data, either in NSUserDefaults, or in the documents directory using an NSKeyedArchiver
+// TODO: network alert
+// The app displays an alert view if the network connection fails.
 class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var noDataLabel:UILabel! // show no data when no trip data
@@ -51,9 +54,10 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
     // when user click back button to go back to this view again
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        indicator.startAnimating()
+        //indicator.startAnimating()
         
         setupFetchedResultsController()
+        
         if let indexPath = tableView.indexPathForSelectedRow {
             // deselect the row when table re-appear
             tableView.deselectRow(at: indexPath, animated: false)
@@ -66,6 +70,15 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         fetchedResultsController = nil
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? DaysTableViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                vc.trip = fetchedResultsController.object(at: indexPath)
+            }
+        }
     }
 
     @IBAction func addTripFromToolBar(_ sender: Any) {
