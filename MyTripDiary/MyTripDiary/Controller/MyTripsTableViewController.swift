@@ -91,7 +91,7 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        let numOfSection = fetchedResultsController.sections?.count ?? 0
+        let numOfSection = fetchedResultsController.sections?.count ?? 1
         print("number of section \(numOfSection)")
         return numOfSection
     }
@@ -133,7 +133,7 @@ class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITab
         switch editingStyle {
         // delete the row
         case .delete:
-            print("editing style is? ¥(editingStyle)")
+            print("editing style is? \(editingStyle)")
             deleteTripAtIndexPath(indexpath: indexPath)
         default:()
         }
@@ -346,6 +346,17 @@ extension MyTripsTableViewController:NSFetchedResultsControllerDelegate {
         tripToBeAdded.desc = desc
         dataController.viewContext.insert(tripToBeAdded)
         try! dataController.viewContext.save()
+        
+        do {
+            try fetchedResultsController.performFetch()
+            
+            if (fetchedResultsController.fetchedObjects?.count)! > 0 {
+                resetTableBackgroundView()
+            }
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+        
     }
     
     // Delete Trip from Core Data

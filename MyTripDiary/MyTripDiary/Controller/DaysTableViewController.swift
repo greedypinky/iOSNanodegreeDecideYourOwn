@@ -9,11 +9,14 @@
 import UIKit
 import CoreData
 
-class DaysTableViewController: UIViewController {
+class DaysTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    // @IBOutlet var tableView: UITableView!
+    var noDataLabel:UILabel! // show no data label when no day
     var rightBarButton:UIBarButtonItem?
     var trip:Trip!
+    //var days:[Day] = [] // store Day NSManagedObject if saved in the Core Data
     var fetchedResultsController:NSFetchedResultsController<Day>!
     var dataController:DataController {
         
@@ -33,9 +36,10 @@ class DaysTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         addNavigationButton()
+        setupFetchedResultsController()
         //setupFetchedResultsController()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -46,8 +50,12 @@ class DaysTableViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("############ DaysTableViewController ##############")
+        print("viewWillAppear is called!")
+        tableView.register(DayCell.self, forCellReuseIdentifier: "daycell")
         setupFetchedResultsController()
-        //addNavigationButton()
+        // addNavigationButton()
+        tableView.reloadData()
         
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -153,17 +161,23 @@ class DaysTableViewController: UIViewController {
     */
     
     // MARK: - Core Data:add and delete Day function
+    
     fileprivate func setupFetchedResultsController() {
         let fetchRequest:NSFetchRequest<Day> = Day.fetchRequest()
         let predicate = NSPredicate(format: "trip == %@", trip)
         fetchRequest.predicate = predicate
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "createDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(trip)-days")
         // remember to set the delegate otherwise the tableview cannot be updated when coredata has changes.
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
+            if (fetchedResultsController.fetchedObjects?.count)! > 0 {
+                resetTableBackgroundView()
+            } else {
+                setEmptyMessage("No Day!")
+            }
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
@@ -174,21 +188,13 @@ class DaysTableViewController: UIViewController {
         let vc:UINavigationController = storyboard?.instantiateViewController(withIdentifier: "createDayNavigationController") as! UINavigationController
         let createDayVC = vc.topViewController as! CreateDayViewController
         createDayVC.editMode = false
+        createDayVC.trip = trip
         present(vc, animated: true, completion: nil)
     }
     
-    @objc func edit() {
-        // TODO: We do not have a create day page yet you idiot!!
-        let vc:UINavigationController = storyboard?.instantiateViewController(withIdentifier: "createDayNavigationController") as! UINavigationController
-        let createDayVC = vc.topViewController as! CreateDayViewController
-        createDayVC.editMode = true
-        // TODO: Need to get the Core Datainfo and init the View as well !!
-        
-        present(vc, animated: true, completion: nil)
-    }
+
     
-    
-   
+
     // add a new day to core data
 //    private func addDay(date:Date, summary:String) {
 //       let day = Day(context: dataController.viewContext)
@@ -223,39 +229,38 @@ class DaysTableViewController: UIViewController {
         tableView.separatorStyle = .singleLine
     }
     
-}
-
-extension DaysTableViewController:UITableViewDataSource {
-    
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        let numOfSection = fetchedResultsController.sections?.count ?? 0
-        print("number of section \(numOfSection)")
+        let numOfSection = fetchedResultsController.sections?.count ?? 1
+        print("DaysTableViewController Data Source Delegate: number of section \(numOfSection)")
         return numOfSection
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
-        print("number of objects \(numOfRows) in section \(section)")
+        print("DaysTableViewController Data Source Delegate: number of objects \(numOfRows) in section \(section)")
         return numOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let day = fetchedResultsController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
+       // let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as UITableViewCell
         var label:String = ""
         if let date = day.date {
             let dayWithFormat = dateFormatter.string(from: date)
             // show Day 1 05/12/2019
-            label = "Day \(indexPath) \(dayWithFormat)"
+            label = "Day \(indexPath.row) \(dayWithFormat)"
             
         } else {
-            label = "Day \(indexPath)"
+            label = "Day \(indexPath.row)"
         }
-        
+        print("what is the label? \(label)")
+        //cell.title?.text = label
+        cell.detailTextLabel?.text = "TESTING 1234"
         return cell
     }
     
@@ -280,8 +285,73 @@ extension DaysTableViewController:UITableViewDataSource {
         let selectedDay:Day = fetchedResultsController.object(at: indexPath)
         // ... set data
         createDayVC.dataPicker.date = selectedDay.date!
-        createDayVC.summary.text = selectedDay.summary
+        createDayVC.daySummary.text = selectedDay.summary
+        createDayVC.trip = trip
+        present(vc, animated: true, completion: nil)
+    }
+    
+    
+}
+
+/*
+extension DaysTableViewController:UITableViewDataSource {
+    
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        let numOfSection = fetchedResultsController.sections?.count ?? 1
+        print("DaysTableViewController Data Source Delegate: number of section \(numOfSection)")
+        return numOfSection
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        print("DaysTableViewController Data Source Delegate: number of objects \(numOfRows) in section \(section)")
+        return numOfRows
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let day = fetchedResultsController.object(at: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
+        var label:String = ""
+        if let date = day.date {
+            let dayWithFormat = dateFormatter.string(from: date)
+            // show Day 1 05/12/2019
+            label = "Day \(indexPath.row) \(dayWithFormat)"
+            
+        } else {
+            label = "Day \(indexPath.row)"
+        }
+        print("what is the label? \(label)")
+        cell.title?.text = label
+        return cell
+    }
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("editing style is? \(editingStyle)")
+        switch editingStyle {
+        // delete the row
+        case .delete:
+            print("In delete case >>>>>>")
+            deleteDay(at: indexPath)
+        default:()
+        }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc:UINavigationController = storyboard?.instantiateViewController(withIdentifier: "createDayNavigationController") as! UINavigationController
+        let createDayVC = vc.topViewController as! CreateDayViewController
+        createDayVC.editMode = true
+        // TODO: Need to get the Core Datainfo and init the View as well !!
+        let selectedDay:Day = fetchedResultsController.object(at: indexPath)
+        // ... set data
+        createDayVC.dataPicker.date = selectedDay.date!
+        createDayVC.daySummary.text = selectedDay.summary
+        createDayVC.trip = trip
         present(vc, animated: true, completion: nil)
     }
     
@@ -292,6 +362,7 @@ extension DaysTableViewController:UITableViewDelegate {
     
     
 }
+ */
 
 // MARK: NSFetchedResultsControllerDelete to keep the tableview in sync with the core data update
 extension DaysTableViewController:NSFetchedResultsControllerDelegate {

@@ -26,7 +26,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     var isCreate:Bool = false
     var trip:Trip!
     var currentDay:Day!
-    var pins:[Pin]!
+    var pins:[Pin] = []
     var dataController:DataController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         return delegate.dataController
@@ -46,7 +46,12 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
        setMapViewGesture()
         
        setDatePickForDateOnly()
+        
+        if !editMode {
+            
+        }
       
+        daySummary.delegate = self
         // initPinFromCoreData()
         
     }
@@ -156,28 +161,6 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         pins.append(pin)
     }
     
-    /*
-    fileprivate func updateDay(lat:Double,long:Double, date:Date) {
-        if !isCreate {
-            let fetchRequest:NSFetchRequest<Day> = Day.fetchRequest()
-            let predicateLatitude = NSPredicate(format: "lat == %@", lat)
-            let predicateLongtitude = NSPredicate(format: "long == %@", long)
-            //let predicateDate = NSPredicate(format: "date == %d", date)
-            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [predicateLatitude, predicateLongtitude])
-            fetchRequest.predicate = andPredicate
-            
-            updateResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-            // remember to set the delegate otherwise the tableview cannot be updated when coredata has changes.
-            // fetchedResultsController.delegate = self
-            do {
-                try updateResultController.performFetch()
-            } catch {
-                fatalError("The fetch could not be performed: \(error.localizedDescription)")
-            }
-        }
-    } */
-    
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         // for Pin rendering
         let annotationID = "pin"
@@ -209,23 +192,23 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         print("PIN did select with lat \(tabLocationLatitude) and long \(tabLocationLongtitude)")
         
         // TODO: Present the Alert
-        removePinAlert()
+        removePinAlert(annotation: annotation!)
         
     }
     
     func removePinAlert(annotation:MKAnnotation) {
-        if editMode {
-            let alert = UIAlertController(title: "Delete pin?", message: "Are you sure you want to remove the pin from Map?", preferredStyle: .alert)
+        //if editMode {
+            let alert = UIAlertController(title: "Remove pin?", message: "Are you sure you want to remove the pin from Map?", preferredStyle: .alert)
     
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            let deleteAction = UIAlertAction(title: "Remove", style: .destructive) { [weak self] _ in
                 guard let strongSelf = self else { return }
                 strongSelf.removePin(annotation: annotation)
             }
             alert.addAction(cancelAction)
             alert.addAction(deleteAction)
             present(alert, animated: true, completion: nil)
-        }
+        //}
     }
 
     private func removePin(annotation:MKAnnotation) {
@@ -233,17 +216,38 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             // When a pin is tapped, remove the annotation from the mapView
             mapView.removeAnnotation(annotation)
 
-    
-
+        for pin in pins {
+            if (pin.latitude == annotation.coordinate.latitude && pin.longtitude == annotation.coordinate.longitude) {
+                let index = pins.firstIndex(of: pin)
+                pins.remove(at: index!)
+                print("removed from the pins array!")
+                break
+            }
+            
+        }
     }
     
     @IBAction func saveChanges(_ sender: Any) {
-        print("save changes")
+        print("save changes to CoreData!")
         let selectedDate = dataPicker.date
         let summary = daySummary.text
         addDay(date: selectedDate, summary: summary!)
-        
-        
+        dismiss(animated: true, completion: nil)
     }
     
+}
+
+
+extension CreateDayViewController:UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        textView.becomeFirstResponder()
+    }
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        //
+        textView.resignFirstResponder()
+    }
 }

@@ -11,5 +11,5 @@ import UIKit
 
 internal final class DayCell:UITableViewCell {
     
-    
+    @IBOutlet weak var title: UILabel!
 }
