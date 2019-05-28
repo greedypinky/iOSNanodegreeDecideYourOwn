@@ -22,6 +22,8 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     // need to remember the Lat and Lon in the CoreData too
     
     @IBOutlet weak var mapView: MKMapView!
+    var date:Date!
+    var summary:String!
     var editMode:Bool = false
     var isCreate:Bool = false
     var trip:Trip!
@@ -32,6 +34,13 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         return delegate.dataController
     }
     var updateResultController:NSFetchedResultsController<Day>!
+    let dateFormatter: DateFormatter = {
+        
+        let df = DateFormatter()
+        df.dateStyle = DateFormatter.Style.medium
+        return df
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,14 +56,32 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         
        setDatePickForDateOnly()
         
-        if !editMode {
-            
-        }
-      
-        daySummary.delegate = self
-        // initPinFromCoreData()
+       daySummary.delegate = self
         
+        if editMode {
+            initViewData()
+        }
     }
+    
+    private func initViewData() {
+        dataPicker.date = date
+        daySummary.text = summary
+        initPinFromCoreData()
+    
+    }
+    
+    
+    private func initPinFromCoreData() {
+        // Set pins to the map
+        
+        for pin in pins {
+            let location = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longtitude)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            mapView.addAnnotation(annotation)
+        }
+    }
+    
     
     private func setNavigationMenu() {
         let cancelButton = UIBarButtonItem(image: nil, style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancel))

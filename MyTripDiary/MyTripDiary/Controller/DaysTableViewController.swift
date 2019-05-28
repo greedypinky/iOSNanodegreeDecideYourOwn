@@ -248,7 +248,7 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let day = fetchedResultsController.object(at: indexPath)
        // let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath)
         var label:String = ""
         if let date = day.date {
             let dayWithFormat = dateFormatter.string(from: date)
@@ -261,6 +261,7 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         print("what is the label? \(label)")
         //cell.title?.text = label
         cell.detailTextLabel?.text = "TESTING 1234"
+        cell.textLabel?.text = label
         return cell
     }
     
@@ -284,8 +285,18 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         // TODO: Need to get the Core Datainfo and init the View as well !!
         let selectedDay:Day = fetchedResultsController.object(at: indexPath)
         // ... set data
-        createDayVC.dataPicker.date = selectedDay.date!
-        createDayVC.daySummary.text = selectedDay.summary
+        /*
+         createDate = "2019-05-28 00:25:05 +0000";
+         date = "2019-06-28 00:25:00 +0000";
+         photos = "<relationship fault: 0x600001d81c00 'photos'>";
+         pins = "<relationship fault: 0x600001d81cc0 'pins'>";
+         summary = Test;
+         trip = "0x9d3d21f31cc291a0 <x-coredata://CC688AF1-8501-449C-A562-B109FE243367/Trip/p1>";
+         */
+        // TODO: date need to get the date
+        print("can we get the date? \(selectedDay.date!)")
+        createDayVC.date = selectedDay.date!
+        createDayVC.summary = selectedDay.summary
         createDayVC.trip = trip
         present(vc, animated: true, completion: nil)
     }
