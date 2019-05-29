@@ -295,8 +295,9 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
          */
         // TODO: date need to get the date
         print("can we get the date? \(selectedDay.date!)")
-        createDayVC.date = selectedDay.date!
-        createDayVC.summary = selectedDay.summary
+        //createDayVC.date = selectedDay.date!
+        //createDayVC.summary = selectedDay.summary
+        createDayVC.currentDay = selectedDay
         createDayVC.trip = trip
         present(vc, animated: true, completion: nil)
     }

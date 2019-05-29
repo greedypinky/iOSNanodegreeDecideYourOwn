@@ -168,19 +168,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IRh-jg-Ici">
-                                <rect key="frame" x="10" y="74" width="375" height="193"/>
+                                <rect key="frame" x="10" y="74" width="375" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="8Q9-07-rUR"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="580198087.36024904">
                                     <!--2019-05-22 06:08:07 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDk-nO-1bm" userLabel="Day Summary Label">
-                                <rect key="frame" x="20" y="277" width="107" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Day Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDk-nO-1bm" userLabel="Day Summary Label">
+                                <rect key="frame" x="20" y="244" width="107" height="3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WZz-9Q-tqG">
-                                <rect key="frame" x="10" y="287" width="355" height="150"/>
+                                <rect key="frame" x="10" y="257" width="355" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="RO2-Hg-raf"/>
@@ -190,7 +193,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" flightNumber="YES" lookupSuggestion="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmB-hq-gGX">
-                                <rect key="frame" x="10" y="657" width="355" height="0.0"/>
+                                <rect key="frame" x="10" y="627" width="355" height="30"/>
                                 <color key="backgroundColor" red="0.31078652220000003" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -198,7 +201,7 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kTk-AW-tuU">
-                                <rect key="frame" x="10" y="457" width="355" height="200"/>
+                                <rect key="frame" x="10" y="427" width="355" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="kuZ-eN-Wcz"/>
                                 </constraints>
@@ -253,7 +256,21 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGy-rq-4aZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="539"/>
+            <point key="canvasLocation" x="1265" y="537"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JTi-7X-Xqs">
+            <objects>
+                <viewController id="5XR-0B-5Yy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JZU-w3-DuX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XDB-BV-sJr"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpQ-5i-g3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

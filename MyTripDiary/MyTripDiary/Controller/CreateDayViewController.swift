@@ -41,6 +41,19 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         return df
     }()
     
+    var headerTitle:String {
+        get {
+            
+            return editMode ? "Create Day (Edit)":"Create Day"
+            
+//            if !editMode {
+//                return  "Create Day"
+//            }
+//            else {
+//                return "Create Day (Edit)"
+//            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +77,11 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     private func initViewData() {
-        dataPicker.date = date
-        daySummary.text = summary
-        initPinFromCoreData()
+        if let day = currentDay {
+            dataPicker.date = day.date!
+            daySummary.text = day.summary
+            //initPinFromCoreData()
+        }
     
     }
     
@@ -87,7 +102,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         let cancelButton = UIBarButtonItem(image: nil, style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancel))
         cancelButton.title = "Cancel"
         navigationItem.setLeftBarButton(cancelButton, animated: true)
-        navigationItem.title = "Add Day"
+        navigationItem.title = headerTitle
     }
     
     private func setMapViewGesture() {
@@ -115,6 +130,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             let location = CLLocationCoordinate2D(latitude: mapCoordinate.latitude, longitude: mapCoordinate.longitude)
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
+            annotation.title = "Tab to get Flickr photos"
             mapView.addAnnotation(annotation)
             // TODO: When pins are dropped on the map, the pins are persisted as Pin instances in Core Data and the context is saved.
             print("Save pin to core data only when it does not save before!")
@@ -126,20 +142,20 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     private func addNavigationButton(){
         var title:String {
              get {
-                if isCreate {
-                    return  "Add"
+                if !editMode {
+                    return  "Create Day"
                 }
                 else {
-                    return "Edit"
+                    return "Create Day (Edit)"
                 }
             }
         }
         
-        let rightButton = UIBarButtonItem(title: title, style: UIBarButtonItem.Style.plain, target: self, action: #selector(saveOrEdit))
-        navigationItem.setRightBarButtonItems([rightButton], animated: true)
+//        let rightButton = UIBarButtonItem(title: title, style: UIBarButtonItem.Style.plain, target: self, action: #selector(saveOrEdit))
+//        navigationItem.setRightBarButtonItems([rightButton], animated: true)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancel) )
         navigationItem.setLeftBarButton(cancelButton, animated: true)
-        navigationController?.title = "Create Day"
+        navigationController?.title = headerTitle
     }
 
     /*
@@ -151,16 +167,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         // Pass the selected object to the new view controller.
     }
     */
-    @objc private func saveOrEdit() {
-        //addDay(date:Date, summary:String)
-        // TODO: When Save
-        // 1.addDay(date:Date, summary:String, lat:Double, lon:Double)
-        // 2.dismiss the modal
-        
-        // TODO: if Edit
-        // Enable to DatePicker Field, SummaryField and MapView
-        // Show the "Save" button
-    }
+
     
     @objc private func cancel() {
         // dismiss this view
@@ -169,14 +176,21 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     // add a new day to core data
     private func addDay(date:Date, summary:String) {
-        let day = Day(context: dataController.viewContext)
-        day.createDate = Date()
-        day.date = date
-        day.summary = summary
-        day.trip = trip // must set the trip, otherwise cannot create relationship with the Trip object
-        // day.addToPins(Pins)
-        currentDay = day
+        if !editMode {
+            let day = Day(context: dataController.viewContext)
+            day.createDate = Date()
+            day.date = date
+            day.summary = summary
+            day.trip = trip // must set the trip, otherwise cannot create relationship with the Trip object
+            // day.addToPins(Pins)
+            currentDay = day
+        } else {
+            
+           currentDay.date = date
+           currentDay.summary = summary
+        }
         try? dataController.viewContext.save()
+        
     }
     
     private func addPin(lat:Double, lon:Double) {
@@ -194,8 +208,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationID) as? MKPinAnnotationView
         if pinView == nil {
             pinView = MKPinAnnotationView()
-            pinView?.canShowCallout = false
-            pinView?.pinTintColor = .red
+            pinView?.canShowCallout = true
             pinView?.rightCalloutAccessoryView = UIButton(type:.detailDisclosure)
             pinView?.animatesDrop = true
             
@@ -210,8 +223,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // TODO: when in Edit mode and user select the pin
         // Remove it from the MapView!
-        print("did select")
-        // print("what is the edit mode? \(editMode)" )
+        print("MapView - did select a PIN!")
         let annotation = view.annotation
 
         var tabLocationLongtitude = annotation?.coordinate.longitude
@@ -219,23 +231,37 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         print("PIN did select with lat \(tabLocationLatitude) and long \(tabLocationLongtitude)")
         
         // TODO: Present the Alert
-        removePinAlert(annotation: annotation!)
+        // removePinAlert(annotation: annotation!)
         
     }
     
-    func removePinAlert(annotation:MKAnnotation) {
-        //if editMode {
-            let alert = UIAlertController(title: "Remove pin?", message: "Are you sure you want to remove the pin from Map?", preferredStyle: .alert)
-    
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let deleteAction = UIAlertAction(title: "Remove", style: .destructive) { [weak self] _ in
-                guard let strongSelf = self else { return }
-                strongSelf.removePin(annotation: annotation)
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // TODO: Add the action when the call out is tapped
+        if !isCreate {
+            if (control == view.rightCalloutAccessoryView) {
+                let app = UIApplication.shared
+                if let lat = view.annotation?.coordinate.latitude, let lon = view.annotation?.coordinate.longitude {
+                    // TODO: can open a new view based on the PIN coordinate
+                    print("Will open the search photo view here based on the Coordinate!")
+                }
             }
-            alert.addAction(cancelAction)
-            alert.addAction(deleteAction)
-            present(alert, animated: true, completion: nil)
-        //}
+        }
+    }
+    
+    
+    func removePinAlert(annotation:MKAnnotation) {
+        
+        let alert = UIAlertController(title: "Remove pin?", message: "Are you sure you want to remove the pin from Map?", preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Remove", style: .destructive) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.removePin(annotation: annotation)
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        present(alert, animated: true, completion: nil)
+        
     }
 
     private func removePin(annotation:MKAnnotation) {
@@ -262,19 +288,20 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         dismiss(animated: true, completion: nil)
     }
     
+    
+    
+    
 }
 
 
 extension CreateDayViewController:UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
         textView.becomeFirstResponder()
     }
     
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        //
         textView.resignFirstResponder()
     }
 }
