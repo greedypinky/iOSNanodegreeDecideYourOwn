@@ -1,14 +1,14 @@
 //
-//  ItineraryDetailViewController.swift
+//  PhotoViewController.swift
 //  MyTripDiary
 //
-//  Created by Man Wai  Law on 2019-05-05.
+//  Created by Man Wai  Law on 2019-05-28.
 //  Copyright © 2019 Rita's company. All rights reserved.
 //
 
 import UIKit
 
-class DayDetailViewController: UIViewController {
+class PhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

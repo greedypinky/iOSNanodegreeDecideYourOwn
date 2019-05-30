@@ -9,18 +9,18 @@
 import Foundation
 
 // Flickr REST API Calls
-class FlickerAPIRequest {
+class FlickrClient {
     
     enum FlickrEndpoint {
         
-        case getSearch(lat:Double,lon:Double,per_page:Int)
+        case getSearch(lat:Double,lon:Double,per_page:Int, user_id:String?)
         
         case getPhoto(id:String, secret:String, farmid:String, serverid:String)
         
         var stringValue:String {
             
             switch self {
-            case let .getSearch(lat,lon,per_page):
+            case let .getSearch(lat,lon,per_page, userid):
                 // Hardcode the lat and lon for now
                 let api = FlickrAPI()
                 var urlComponents = api.getURLComponents()
@@ -33,8 +33,16 @@ class FlickerAPIRequest {
                 let nojsoncallback = URLQueryItem(name: "nojsoncallback", value: "1")
                 let per_page = URLQueryItem(name: "per_page", value: "\(per_page)")
                 // if we use user's id parameter : user_id otherwise will get everybody's public photos will be searched.
-                let user_id = URLQueryItem(name: "user_id", value: "https://www.flickr.com/photos/157196546@N08")
-                urlComponents.queryItems = [method,apikey,latitude,longitude,format,nojsoncallback,per_page,user_id]
+                // https://www.flickr.com/photos/157196546@N08
+                if let id = userid {
+                    let useridQuery = URLQueryItem(name: "user_id", value: "\(id)")
+                //let user_id = URLQueryItem(name: "user_id", value: "157196546@N08")
+                     urlComponents.queryItems = [method,apikey,latitude,longitude,format,nojsoncallback,per_page,useridQuery]
+                } else {
+                    
+                    urlComponents.queryItems = [method,apikey,latitude,longitude,format,nojsoncallback,per_page]
+                }
+               
                 // urlComponents.queryItems = [method,apikey,latitude,longitude,format,nojsoncallback,per_page]
                 return urlComponents.url!.absoluteString
                 
@@ -59,10 +67,10 @@ class FlickerAPIRequest {
      var in_gallery:Bool?=false
      var per_page:Int?=100
      */
-    class func photoGetRequest<RequestType:Encodable,ResponseType:Decodable>(photoSearch:RequestType, responseType: ResponseType.Type,completionHandler: @escaping (ResponseType?,Error?) -> Void) {
+    class func photoGetRequest<RequestType:Encodable,ResponseType:Decodable>(endpoint:URL, photoSearch:RequestType, responseType: ResponseType.Type,completionHandler: @escaping (ResponseType?,Error?) -> Void) {
         
         let search = photoSearch as! PhotoSearch
-        let endpoint:URL = FlickrEndpoint.getSearch(lat: search.lat, lon: search.lon, per_page:search.per_page).url
+        // let endpoint:URL = FlickrEndpoint.getSearch(lat: search.lat, lon: search.lon, per_page:search.per_page).url
         print("Endpoint URL is \(endpoint)")
         var request = URLRequest(url: endpoint)
         request.httpMethod = "GET"
@@ -82,10 +90,17 @@ class FlickerAPIRequest {
             // we have to decode the data
             let jsonDecoder = JSONDecoder()
             do {
+                let group = DispatchGroup()
+                group.enter()
+                
                 let decodedData = try jsonDecoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
                     // handle the decoded data
                     completionHandler(decodedData,nil)
+                }
+                
+                group.notify(queue: .main) {
+                    print("===========Group Got Notified!============")
                 }
             } catch let decodeErr{
                 DispatchQueue.main.async {

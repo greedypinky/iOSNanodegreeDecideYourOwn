@@ -80,7 +80,8 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         if let day = currentDay {
             dataPicker.date = day.date!
             daySummary.text = day.summary
-            //initPinFromCoreData()
+            pins = day.pins?.allObjects as! [Pin]
+            initPinFromCoreData()
         }
     
     }
@@ -88,11 +89,12 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     private func initPinFromCoreData() {
         // Set pins to the map
-        
+       
         for pin in pins {
             let location = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longtitude)
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
+            annotation.title = "Tab to get Flickr photos"
             mapView.addAnnotation(annotation)
         }
     }
@@ -168,7 +170,6 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     */
 
-    
     @objc private func cancel() {
         // dismiss this view
         dismiss(animated: true, completion: nil)
@@ -183,6 +184,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             day.summary = summary
             day.trip = trip // must set the trip, otherwise cannot create relationship with the Trip object
             // day.addToPins(Pins)
+            day.addToPins(NSSet(array: pins))
             currentDay = day
         } else {
             
@@ -243,11 +245,29 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                 if let lat = view.annotation?.coordinate.latitude, let lon = view.annotation?.coordinate.longitude {
                     // TODO: can open a new view based on the PIN coordinate
                     print("Will open the search photo view here based on the Coordinate!")
+                    
+                   let vc = storyboard?.instantiateViewController(withIdentifier: "photosCollectionView") as! PhotosCollectionViewController
+                    // for DEBUG usage
+                    // 58.3019444,-134.4197221
+                    //vc.lat = 58.3019444
+                    //vc.lon = -134.4197221
+                   vc.lat = lat
+                   vc.lon = lon
+                   //present(vc, animated: true, completion: nil)
+                   // performSegue(withIdentifier: "photosNavigationController", sender: self)
+                   navigationController?.pushViewController(vc, animated: true)
+                
                 }
             }
         }
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // prepare segue
+        
+        
+    }
     
     func removePinAlert(annotation:MKAnnotation) {
         
