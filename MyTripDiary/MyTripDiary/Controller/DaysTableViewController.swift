@@ -166,7 +166,7 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         let fetchRequest:NSFetchRequest<Day> = Day.fetchRequest()
         let predicate = NSPredicate(format: "trip == %@", trip)
         fetchRequest.predicate = predicate
-        let sortDescriptor = NSSortDescriptor(key: "createDate", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "createDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(trip)-days")
         // remember to set the delegate otherwise the tableview cannot be updated when coredata has changes.
@@ -191,18 +191,6 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         createDayVC.trip = trip
         present(vc, animated: true, completion: nil)
     }
-    
-
-    
-
-    // add a new day to core data
-//    private func addDay(date:Date, summary:String) {
-//       let day = Day(context: dataController.viewContext)
-//       day.date = date
-//       day.summary = summary
-//       day.trip = trip // must set the trip, otherwise cannot create relationship with the Trip object
-//       try? dataController.viewContext.save()
-//    }
     
     // get the object at indexpath and delete from the core data
     private func deleteDay(at indexPath:IndexPath) {
@@ -253,6 +241,7 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         if let date = day.date {
             let dayWithFormat = dateFormatter.string(from: date)
             // show Day 1 05/12/2019
+            
             label = "Day \(indexPath.row) \(dayWithFormat)"
             
         } else {

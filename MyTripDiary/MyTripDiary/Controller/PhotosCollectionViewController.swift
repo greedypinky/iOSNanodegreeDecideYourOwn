@@ -25,6 +25,8 @@ class PhotosCollectionViewController: UIViewController {
     
     @IBOutlet weak var userIDTextField: UITextField!
     
+    @IBOutlet weak var placeName: UILabel!
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var loadPhotos: UIButton!
@@ -344,6 +346,8 @@ extension PhotosCollectionViewController:UICollectionViewDataSource,UICollection
                 if let country = placeMark.country {
                     print(country)
                 }
+                
+                self.placeName.text = "\(String(describing: placeMark.subAdministrativeArea)) \(String(describing: placeMark.country))"
         })
         
     }

@@ -17,11 +17,12 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     @IBOutlet weak var daySummary: UITextView!
     
     @IBOutlet weak var saveButton: UIButton!
-    
+    var isDeletePinMode:Bool = false
     
     // need to remember the Lat and Lon in the CoreData too
     
     @IBOutlet weak var mapView: MKMapView!
+    var currentAnnotation:MKAnnotation?
     var date:Date!
     var summary:String!
     var editMode:Bool = false
@@ -43,15 +44,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     var headerTitle:String {
         get {
-            
             return editMode ? "Create Day (Edit)":"Create Day"
-            
-//            if !editMode {
-//                return  "Create Day"
-//            }
-//            else {
-//                return "Create Day (Edit)"
-//            }
         }
     }
 
@@ -89,7 +82,10 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     private func initPinFromCoreData() {
         // Set pins to the map
-       
+        if pins.count > 0 {
+            addDeletePinButton()
+        }
+        
         for pin in pins {
             let location = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longtitude)
             let annotation = MKPointAnnotation()
@@ -107,6 +103,20 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         navigationItem.title = headerTitle
     }
     
+    private func addDeletePinButton() {
+        let deletePinButton = UIBarButtonItem(image: nil, style: UIBarButtonItem.Style.plain, target: self, action: #selector(updateButtonStates))
+        deletePinButton.title = "Delete pin"
+        navigationItem.setRightBarButton(deletePinButton, animated: true)
+    }
+    
+    private func updateNavBarRightButton(isEdit:Bool) {
+        if isEdit {
+            navigationItem.rightBarButtonItem?.title = "Done"
+        } else {
+            navigationItem.rightBarButtonItem?.title = "Delete Pin"
+        }
+    }
+    
     private func setMapViewGesture() {
         var longPress = UILongPressGestureRecognizer(target: self, action: #selector(addPinToTheMap))
         // Tapping and holding the map drops a new pin. Users can place any number of pins on the map.
@@ -120,8 +130,20 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         dataPicker.datePickerMode = UIDatePicker.Mode.date
     }
     
+    @objc private func updateButtonStates() {
+        if (navigationItem.rightBarButtonItem?.title == "Delete pin") {
+            print("update nav right button!")
+            updateNavBarRightButton(isEdit:true)
+            isDeletePinMode = true
+        } else {
+            updateNavBarRightButton(isEdit:false)
+            isDeletePinMode = false
+        }
+        // update the UX of the save button
+    }
+    
     @objc private func addPinToTheMap(longPressGestureRecongnizer:UIGestureRecognizer) {
-        // add pin tothe map
+        
         print("add pin to map")
         if (longPressGestureRecongnizer.state == UIGestureRecognizer.State.began)
         {
@@ -131,14 +153,20 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             let mapCoordinate = mapView.convert(touchPointAtMapView, toCoordinateFrom: mapView)
             let location = CLLocationCoordinate2D(latitude: mapCoordinate.latitude, longitude: mapCoordinate.longitude)
             let annotation = MKPointAnnotation()
+            
+           
+            //add pin to the map
             annotation.coordinate = location
-            annotation.title = "Tab to get Flickr photos"
+            annotation.title = "Tab to get Flickr photos" // title for the Callout
             mapView.addAnnotation(annotation)
-            // TODO: When pins are dropped on the map, the pins are persisted as Pin instances in Core Data and the context is saved.
+            // When pins are dropped on the map, the pins are persisted in the Pins array and save in the Core data when Save button is selected.
             print("Save pin to core data only when it does not save before!")
             addPin(lat: location.latitude, lon: location.longitude)
+            // update the navigation bar's right button
+            if pins.count > 0 {
+                addDeletePinButton()
+            }
         }
-    
     }
     
     private func addNavigationButton(){
@@ -220,8 +248,6 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         return pinView
     }
     
-    
-    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // TODO: when in Edit mode and user select the pin
         // Remove it from the MapView!
@@ -232,8 +258,11 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         var tabLocationLatitude = annotation?.coordinate.latitude
         print("PIN did select with lat \(tabLocationLatitude) and long \(tabLocationLongtitude)")
         
-        // TODO: Present the Alert
-        removePinAlert(annotation: annotation!)
+        guard !isDeletePinMode else {
+            // removePin(annotation: annotation)
+            removePinAlert(annotation:view.annotation!)
+            return
+        }
         
     }
     
@@ -241,6 +270,12 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         // TODO: Add the action when the call out is tapped
         if !isCreate {
             if (control == view.rightCalloutAccessoryView) {
+                guard !isDeletePinMode else {
+                    // removePin(annotation: annotation)
+                    removePinAlert(annotation:view.annotation!)
+                    return
+                }
+                currentAnnotation = view.annotation
                 let app = UIApplication.shared
                 if let lat = view.annotation?.coordinate.latitude, let lon = view.annotation?.coordinate.longitude {
                     // TODO: can open a new view based on the PIN coordinate
@@ -285,9 +320,9 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
 
     private func removePin(annotation:MKAnnotation) {
-            print("will remove annotation!")
-            // When a pin is tapped, remove the annotation from the mapView
-            mapView.removeAnnotation(annotation)
+        print("will remove annotation!")
+        // When a pin is tapped, remove the annotation from the mapView
+        mapView.removeAnnotation(annotation)
 
         for pin in pins {
             if (pin.latitude == annotation.coordinate.latitude && pin.longtitude == annotation.coordinate.longitude) {
@@ -308,9 +343,6 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
 }
 
 
@@ -318,10 +350,14 @@ extension CreateDayViewController:UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.becomeFirstResponder()
+        mapView.deselectAnnotation(currentAnnotation, animated: true)
     }
-    
     
     func textViewDidEndEditing(_ textView: UITextView) {
         textView.resignFirstResponder()
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return range.location < 500
     }
 }
