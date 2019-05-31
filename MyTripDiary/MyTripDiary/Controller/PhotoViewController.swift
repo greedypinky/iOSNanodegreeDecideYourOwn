@@ -10,12 +10,42 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
+    var image:UIImage!
+    @IBOutlet weak var selectedPhoto: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectedPhoto.image = image
+        
+        addNavigationButton()
+    }
+    
+    private func addNavigationButton(){
+        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(share))
+        navigationItem.setRightBarButtonItems([addButton], animated: true)
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(cancel))
+        navigationItem.setLeftBarButtonItems([cancelButton], animated: true)
+        navigationController?.title = "Photo"
+    }
+    
+    
+    @objc private func share() {
+        print("share")
+        let sharedImage = [selectedPhoto.image]
+        let ac = UIActivityViewController(activityItems: sharedImage, applicationActivities: nil)
+        present(ac, animated: true, completion: nil)
+        
+    }
+    @objc private func cancel() {
+        print("cancel")
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
@@ -26,5 +56,4 @@ class PhotoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

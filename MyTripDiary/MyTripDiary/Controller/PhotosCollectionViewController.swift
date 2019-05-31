@@ -37,34 +37,29 @@ class PhotosCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "photoCell")
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        // Set the delegate and datasource for the Collection View
+        print("viewDidLoad!")
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         // https://codingwarrior.com/2018/02/05/ios-display-images-in-uicollectionview/
         addPin() // Add pin to the Map View
         setNoDataLabel() // Setup the No Data label
-        showNoDataLabel(show:true)
+        if flickrImages.count == 0 {
+            showNoDataLabel(show:true)
+        }
         
-        photoCollectionView.addSubview(activityView)
         activityView.hidesWhenStopped = true
         activityView.center = photoCollectionView.center
+        photoCollectionView.addSubview(activityView)
         // see if we can get the name from the Map's coordinate
         getPlaceName()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear!")
+        // Set the delegate and datasource for the Collection View
+       
         
-         showPhotos() 
+        // showPhotos()
     }
     
     private func showPhotos() {
@@ -94,13 +89,13 @@ class PhotosCollectionViewController: UIViewController {
     @IBAction func load(_ sender: Any) {
         
         showNoDataLabel(show: false)
+        photoCollectionView.superview?.bringSubviewToFront(activityView)
         activityView.startAnimating()
         
         flickrImages.removeAll() // reset the array to store new pictures
         showPhotos() // Send Flickr API Request to get the photos
         // TODO: Send Flickr Request to get photos
-        //sleep(2000)
-        //photoCollectionView.reloadData()
+       // photoCollectionView.reloadData()
     }
 
     // MARK: Fetch Flickr photos request's handler methods
@@ -139,13 +134,20 @@ class PhotosCollectionViewController: UIViewController {
         print("===== How many pictures can we get ? \(count) =====")
         // We have Flickr photos
         showNoDataLabel(show:false)
+        // let myGroup = DispatchGroup()
+
         for photoInfo in response.photos.photo! {
+           // myGroup.enter()
             let photoURL:URL = FlickrClient.mapPhotoToURL(id: photoInfo.id, secret: photoInfo.secret, farmid: "\(photoInfo.farm)", serverid: photoInfo.server)
             // Download the photo from URL, save photo to core data (Optional - will do it later if have time!)
             print("map photo id: \(photoInfo.id)")
             print("mapped photo url: \(photoURL.absoluteString)")
             // Call another method to handle the photo download from the URL
             FlickrClient.photoImageDownload(url: photoURL, completionHandler: HandlePhotoSave(data:error:))
+            
+//            myGroup.notify(queue: .main) {
+//                print("=======Finished all download =======")
+//            }
         }
         
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1000) { [weak self] in
@@ -153,15 +155,15 @@ class PhotosCollectionViewController: UIViewController {
 //            self?.activityView.stopAnimating()
 //        }
         
-        //DispatchQueue.main.async {
-        print(" Before view reload what is the count in the photo array? \(flickrImages.count)")
+       // DispatchQueue.main.async {
+        print(" Before view reload what is the count in the photo array? \(self.flickrImages.count)")
          self.photoCollectionView.reloadData()
          self.activityView.stopAnimating()
-        //}
+       // }
     }
     
     func HandlePhotoSave(data:Data?, error:Error?) {
-        
+        print("======== inside HandlePhotoSave ======")
         guard let data = data else {
             let ac = UIAlertController(title: "Loading photo error", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
             let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (action) in
@@ -177,7 +179,7 @@ class PhotosCollectionViewController: UIViewController {
         let photoImage = UIImage(data: data)
         // Save image
         addPhoto(image: photoImage!)
-        print("Download Finished lets reload the CollectionView!")
+        print("HandlePhotoSave: Download Finished!")
     }
     
     
@@ -185,6 +187,8 @@ class PhotosCollectionViewController: UIViewController {
     
     private func addPhoto(image:UIImage) {
         flickrImages.append(image)
+        print("after append image array count? \(flickrImages.count)")
+        
     }
     
     private func setNoDataLabel() {
@@ -232,6 +236,7 @@ class PhotosCollectionViewController: UIViewController {
 }
 
 // MARK: Extension for UICollectionViewDelegate and UICollectionViewDataSource
+// https://www.appcoda.com/ios-collection-view-tutorial/
 extension PhotosCollectionViewController:UICollectionViewDataSource,UICollectionViewDelegate {
     
     // MARK: UICollectionViewDataSource
@@ -280,6 +285,18 @@ extension PhotosCollectionViewController:UICollectionViewDataSource,UICollection
      }
      */
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Open picture to view")
+        // navigationPhotoView
+        let vc = storyboard?.instantiateViewController(withIdentifier: "navigationPhotoView") as! UINavigationController
+        // let vc = storyboard?.instantiateViewController(withIdentifier: "photoView") as! PhotoViewController
+        let selectedImage = flickrImages[indexPath.row]
+        let photo_vc = vc.topViewController as! PhotoViewController
+        photo_vc.image = selectedImage
+        // open a model view, now we try to use push
+        //navigationController?.pushViewController(vc, animated: true)
+        present(vc, animated: true, completion: nil)
+    }
     
      // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
@@ -287,12 +304,11 @@ extension PhotosCollectionViewController:UICollectionViewDataSource,UICollection
      }
      
     func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
+     return true
      }
      
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-        // TODO: Navigate to open a View for Photo
-        print("Open picture to view")
+        print("CollectionView performAction method")
      }
     
     

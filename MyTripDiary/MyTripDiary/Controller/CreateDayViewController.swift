@@ -233,7 +233,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         print("PIN did select with lat \(tabLocationLatitude) and long \(tabLocationLongtitude)")
         
         // TODO: Present the Alert
-        // removePinAlert(annotation: annotation!)
+        removePinAlert(annotation: annotation!)
         
     }
     

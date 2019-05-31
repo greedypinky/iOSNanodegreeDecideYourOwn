@@ -90,18 +90,19 @@ class FlickrClient {
             // we have to decode the data
             let jsonDecoder = JSONDecoder()
             do {
-                let group = DispatchGroup()
-                group.enter()
+//                let group = DispatchGroup()
+//                group.enter()
                 
                 let decodedData = try jsonDecoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
+               // DispatchQueue.main.async {
                     // handle the decoded data
                     completionHandler(decodedData,nil)
-                }
+               // }
                 
-                group.notify(queue: .main) {
-                    print("===========Group Got Notified!============")
-                }
+                // how does this work?
+//                group.notify(queue: .main) {
+//                    print("===========Group Got Notified!============")
+//                }
             } catch let decodeErr{
                 DispatchQueue.main.async {
                     // handle the decoded data
@@ -130,8 +131,11 @@ class FlickrClient {
                 completionHandler(nil,error)
                 return
             }
-            print("Photo URL has data!")
-            completionHandler(data,nil)
+            // what is the different to use  DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async 
+            DispatchQueue.main.async {
+                print("Photo URL has data!")
+                completionHandler(data,nil)
+            }
         }
         
         // start the download task

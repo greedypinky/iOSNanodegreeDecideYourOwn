@@ -374,13 +374,13 @@
         <!--Photo View Controller-->
         <scene sceneID="APp-zX-80V">
             <objects>
-                <viewController storyboardIdentifier="photoViewController" id="Bt4-ib-JAv" customClass="PhotoViewController" customModule="MyTripDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="photoView" id="Bt4-ib-JAv" customClass="PhotoViewController" customModule="MyTripDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pad-AK-Gtb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wkp-pE-m7o">
-                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wkp-pE-m7o">
+                                <rect key="frame" x="24" y="30" width="335" height="607"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -392,10 +392,32 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Jd-re-HR9"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PHQ-XW-NdN"/>
+                    <connections>
+                        <outlet property="selectedPhoto" destination="Wkp-pE-m7o" id="f4z-NX-6h6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTV-UE-YFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3097" y="1955"/>
+            <point key="canvasLocation" x="4964" y="546"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L33-qM-uKD">
+            <objects>
+                <navigationController storyboardIdentifier="navigationPhotoView" automaticallyAdjustsScrollViewInsets="NO" id="eqx-mb-KQV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vQx-Sb-a14">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bt4-ib-JAv" kind="relationship" relationship="rootViewController" id="uXq-SK-5oN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8T-L7-gvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3986" y="546"/>
         </scene>
     </scenes>
     <resources>
