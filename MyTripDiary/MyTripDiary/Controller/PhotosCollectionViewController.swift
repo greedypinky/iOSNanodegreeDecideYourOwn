@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+
 private let reuseIdentifier = "PhotoCollectionViewCell"
 
 class PhotosCollectionViewController: UIViewController {
@@ -352,6 +353,17 @@ extension PhotosCollectionViewController:UICollectionViewDataSource,UICollection
         
     }
     
+    // If user try to load the photos and at the point native API knows there is no network, we show the Popover.
+    private func showPopOverWhenNoNetwork() {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "PopOverController")
+        controller?.modalPresentationStyle = .popover
+        controller?.preferredContentSize = CGSize(width: 300, height: 200)
+        let presentationController = controller?.presentationController as! UIPopoverPresentationController
+        presentationController.sourceView = view
+        presentationController.sourceRect = view.bounds
+        presentationController.permittedArrowDirections = [.down, .up]
+        self.present(controller?, animated: true)
+    }
 }
 
 

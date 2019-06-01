@@ -3,15 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D31628CC7612890EBBAFB6A /* Pods_MyTripDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3757FD8FE11D21E1F4A3446 /* Pods_MyTripDiaryTests.framework */; };
+		994C18133FE2A9DEF45256DD /* Pods_MyTripDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57B68589F0887AC31E00C93 /* Pods_MyTripDiary.framework */; };
+		AD25E27AAA98CC05909D4CCE /* Pods_MyTripDiaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678D8BC1429E18BA25BC71A5 /* Pods_MyTripDiaryUITests.framework */; };
 		D801F1AC228F6F5B0089113D /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801F1AB228F6F5B0089113D /* TripCell.swift */; };
 		D801F1AE228F6F690089113D /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801F1AD228F6F690089113D /* DayCell.swift */; };
 		D801F1B1228F6F940089113D /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801F1B0228F6F940089113D /* Cell.swift */; };
 		F70195FC229E1CD100065CA5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70195FB229E1CD100065CA5 /* PhotoViewController.swift */; };
 		F7019600229E56FC00065CA5 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70195FF229E56FC00065CA5 /* PhotoCollectionViewCell.swift */; };
+		F701960222A23F0E00065CA5 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F701960122A23F0E00065CA5 /* Reachability.framework */; };
 		F72F4CA9227FB54500D5D9F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CA8227FB54500D5D9F7 /* AppDelegate.swift */; };
 		F72F4CAE227FB54500D5D9F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72F4CAC227FB54500D5D9F7 /* Main.storyboard */; };
 		F72F4CB1227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CAF227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld */; };
@@ -47,11 +51,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30738FAC9114D04CA5D3FF7F /* Pods-MyTripDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTripDiaryUITests.release.xcconfig"; path = "Target Support Files/Pods-MyTripDiaryUITests/Pods-MyTripDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		678D8BC1429E18BA25BC71A5 /* Pods_MyTripDiaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTripDiaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69F0B81A327FD33BCDFE514D /* Pods-MyTripDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTripDiary.release.xcconfig"; path = "Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary.release.xcconfig"; sourceTree = "<group>"; };
+		AC67D126A263F17E00E246AA /* Pods-MyTripDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTripDiaryTests.release.xcconfig"; path = "Target Support Files/Pods-MyTripDiaryTests/Pods-MyTripDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
+		B3757FD8FE11D21E1F4A3446 /* Pods_MyTripDiaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTripDiaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7331AE17F2B8B98D12B6261 /* Pods-MyTripDiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTripDiaryTests.debug.xcconfig"; path = "Target Support Files/Pods-MyTripDiaryTests/Pods-MyTripDiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C57B68589F0887AC31E00C93 /* Pods_MyTripDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTripDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D801F1AB228F6F5B0089113D /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 		D801F1AD228F6F690089113D /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		D801F1B0228F6F940089113D /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		DDB010A29A5FA829B09C6CC1 /* Pods-MyTripDiaryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTripDiaryUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyTripDiaryUITests/Pods-MyTripDiaryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F70195FB229E1CD100065CA5 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		F70195FF229E56FC00065CA5 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		F701960122A23F0E00065CA5 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F701960322A23F1500065CA5 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72F4CA5227FB54400D5D9F7 /* MyTripDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTripDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72F4CA8227FB54500D5D9F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F72F4CAD227FB54500D5D9F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +87,7 @@
 		F72F4CF0227FE14400D5D9F7 /* FlickerFetchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerFetchResponse.swift; sourceTree = "<group>"; };
 		F72F4CF2227FE16900D5D9F7 /* FlickerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerRequest.swift; sourceTree = "<group>"; };
 		F7E0E1A52293D50E00DC31CC /* CreateDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDayViewController.swift; sourceTree = "<group>"; };
+		FB21C16BD075B704867B8E98 /* Pods-MyTripDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTripDiary.debug.xcconfig"; path = "Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F701960222A23F0E00065CA5 /* Reachability.framework in Frameworks */,
+				994C18133FE2A9DEF45256DD /* Pods_MyTripDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D31628CC7612890EBBAFB6A /* Pods_MyTripDiaryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,12 +112,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD25E27AAA98CC05909D4CCE /* Pods_MyTripDiaryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34FEEA92CC4ED1313E3FECF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB21C16BD075B704867B8E98 /* Pods-MyTripDiary.debug.xcconfig */,
+				69F0B81A327FD33BCDFE514D /* Pods-MyTripDiary.release.xcconfig */,
+				B7331AE17F2B8B98D12B6261 /* Pods-MyTripDiaryTests.debug.xcconfig */,
+				AC67D126A263F17E00E246AA /* Pods-MyTripDiaryTests.release.xcconfig */,
+				DDB010A29A5FA829B09C6CC1 /* Pods-MyTripDiaryUITests.debug.xcconfig */,
+				30738FAC9114D04CA5D3FF7F /* Pods-MyTripDiaryUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CCC12C703AA3D052B8D31EAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F701960122A23F0E00065CA5 /* Reachability.framework */,
+				C57B68589F0887AC31E00C93 /* Pods_MyTripDiary.framework */,
+				B3757FD8FE11D21E1F4A3446 /* Pods_MyTripDiaryTests.framework */,
+				678D8BC1429E18BA25BC71A5 /* Pods_MyTripDiaryUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D801F1A9228F6EE10089113D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,10 +173,13 @@
 		F72F4C9C227FB54400D5D9F7 = {
 			isa = PBXGroup;
 			children = (
+				F701960322A23F1500065CA5 /* Reachability.framework */,
 				F72F4CA7227FB54400D5D9F7 /* MyTripDiary */,
 				F72F4CBF227FB54700D5D9F7 /* MyTripDiaryTests */,
 				F72F4CCA227FB54700D5D9F7 /* MyTripDiaryUITests */,
 				F72F4CA6227FB54400D5D9F7 /* Products */,
+				34FEEA92CC4ED1313E3FECF5 /* Pods */,
+				CCC12C703AA3D052B8D31EAB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,9 +297,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F72F4CD0227FB54700D5D9F7 /* Build configuration list for PBXNativeTarget "MyTripDiary" */;
 			buildPhases = (
+				2A020C64C38C6E283DF158DB /* [CP] Check Pods Manifest.lock */,
 				F72F4CA1227FB54400D5D9F7 /* Sources */,
 				F72F4CA2227FB54400D5D9F7 /* Frameworks */,
 				F72F4CA3227FB54400D5D9F7 /* Resources */,
+				F6ABFC3219A827665420489D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -415,6 +463,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A020C64C38C6E283DF158DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyTripDiary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6ABFC3219A827665420489D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -611,6 +698,7 @@
 		};
 		F72F4CD1227FB54700D5D9F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB21C16BD075B704867B8E98 /* Pods-MyTripDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -628,6 +716,7 @@
 		};
 		F72F4CD2227FB54700D5D9F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69F0B81A327FD33BCDFE514D /* Pods-MyTripDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -645,6 +734,7 @@
 		};
 		F72F4CD4227FB54700D5D9F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7331AE17F2B8B98D12B6261 /* Pods-MyTripDiaryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -665,6 +755,7 @@
 		};
 		F72F4CD5227FB54700D5D9F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC67D126A263F17E00E246AA /* Pods-MyTripDiaryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -685,6 +776,7 @@
 		};
 		F72F4CD7227FB54700D5D9F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDB010A29A5FA829B09C6CC1 /* Pods-MyTripDiaryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -704,6 +796,7 @@
 		};
 		F72F4CD8227FB54700D5D9F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30738FAC9114D04CA5D3FF7F /* Pods-MyTripDiaryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

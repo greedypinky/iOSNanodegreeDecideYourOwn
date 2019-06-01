@@ -1,0 +1,6 @@
+framework module Pods_MyTripDiaryUITests {
+  umbrella header "Pods-MyTripDiaryUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

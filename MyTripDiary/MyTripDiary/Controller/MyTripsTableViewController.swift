@@ -9,8 +9,7 @@
 import UIKit
 import CoreData
 
-// TODO: persistence requirement:-
-// Aside from your primary app state, you should find some additional state that can be stored outside of Core Data, either in NSUserDefaults, or in the documents directory using an NSKeyedArchiver
+// TODO: persistence requirement
 // TODO: network alert
 // The app displays an alert view if the network connection fails.
 class MyTripsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {

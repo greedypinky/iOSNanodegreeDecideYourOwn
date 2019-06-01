@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 
+
 // https://uxplanet.org/modality-the-one-ux-concept-you-need-to-understand-when-designing-intuitive-user-interfaces-e5e941c7acb1
 // Want to have a full-screen modal view
 class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -52,6 +53,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        NetworkManager.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +69,9 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         if editMode {
             initViewData()
         }
+        // set the title for SaveButton
+        saveButton.setTitle("Delete Pin", for: UIControl.State.disabled)
+        saveButton.setTitle("Save", for: UIControl.State.normal)
     }
     
     private func initViewData() {
@@ -135,11 +140,14 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             print("update nav right button!")
             updateNavBarRightButton(isEdit:true)
             isDeletePinMode = true
+            saveButton.isEnabled = false
+            saveButton.backgroundColor = UIColor(named: "LightGrey")
         } else {
             updateNavBarRightButton(isEdit:false)
             isDeletePinMode = false
+            saveButton.isEnabled = true
+            saveButton.backgroundColor = UIColor(named: "Sky")
         }
-        // update the UX of the save button
     }
     
     @objc private func addPinToTheMap(longPressGestureRecongnizer:UIGestureRecognizer) {
@@ -260,6 +268,10 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         
         guard !isDeletePinMode else {
             // removePin(annotation: annotation)
+            // try to set the save button UX and see how it looks
+            //saveButton.backgroundColor = UIColor(named: "LightGrey")
+            //saveButton.isEnabled = false
+            
             removePinAlert(annotation:view.annotation!)
             return
         }
@@ -282,14 +294,8 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     print("Will open the search photo view here based on the Coordinate!")
                     
                    let vc = storyboard?.instantiateViewController(withIdentifier: "photosCollectionView") as! PhotosCollectionViewController
-                    // for DEBUG usage
-                    // 58.3019444,-134.4197221
-                    //vc.lat = 58.3019444
-                    //vc.lon = -134.4197221
                    vc.lat = lat
                    vc.lon = lon
-                   //present(vc, animated: true, completion: nil)
-                   // performSegue(withIdentifier: "photosNavigationController", sender: self)
                    navigationController?.pushViewController(vc, animated: true)
                 
                 }
@@ -298,17 +304,14 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // prepare segue
-        
-        
-    }
-    
     func removePinAlert(annotation:MKAnnotation) {
         
         let alert = UIAlertController(title: "Remove pin?", message: "Are you sure you want to remove the pin from Map?", preferredStyle: .alert)
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title:"Cancel", style: .cancel) { (action) in
+            
+        }
+        
         let deleteAction = UIAlertAction(title: "Remove", style: .destructive) { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.removePin(annotation: annotation)
@@ -342,6 +345,9 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         addDay(date: selectedDate, summary: summary!)
         dismiss(animated: true, completion: nil)
     }
+    
+    
+   
     
 }
 
