@@ -7,31 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05F256CACC1C186E7A084FE53AD59B85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D711FBA503A6418C1F1C8082286D5985 /* Foundation.framework */; };
-		07E8D3A2CEF18A9BB97B635D2AC172AF /* Pods-MyTripDiary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 710F36120D2E9ADD2E9A5A2B20B01F7D /* Pods-MyTripDiary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0FF4DAB85F2821006CFE242AD1CFF955 /* Pods-MyTripDiary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC87C6C5F5ED5BC94B7E7ADC6CDB52A0 /* Pods-MyTripDiary-dummy.m */; };
-		169BF456FBD6A0D3B36D5BA851C7A0F9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EE968254130456936592FAD883A845 /* CoreTelephony.framework */; };
-		4761F054D6E14F2AD81EBC44583EC962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D711FBA503A6418C1F1C8082286D5985 /* Foundation.framework */; };
-		544002E2F5A859924235D381CD38BDA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D711FBA503A6418C1F1C8082286D5985 /* Foundation.framework */; };
-		5AECB92F15EBF25826ECF01F64706BE5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64256263F0F1E673BCBD67DF6958420 /* SystemConfiguration.framework */; };
-		719465AD4CF623E2FB29272EF9207673 /* ReachabilitySwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E1DDE56472C3C9DF16E4AD6EA2992448 /* ReachabilitySwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76FA5544FC1DB61840745F4986168522 /* Pods-MyTripDiaryUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 249473D49D6113B4C2E9EC3AF2E7D22F /* Pods-MyTripDiaryUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7C92C8E65C1DA9C0C864D6DCBA207F45 /* ReachabilitySwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DB674B68B432A02697EB1664B9CD4E /* ReachabilitySwift-dummy.m */; };
-		84DF7FD988870D75E818E4558D17A070 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4904C2121D407349697EEC458E7A2C0 /* Reachability.swift */; };
-		99FEFD545D1E6A9E6803088D03BCB2E6 /* Pods-MyTripDiaryTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9C08CCC24664A5E24F8C78DE7509B7 /* Pods-MyTripDiaryTests-dummy.m */; };
-		A75C489BDFB2967AE5D72E652FA8B715 /* Pods-MyTripDiaryUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3680AB33F6B8EB787123A51DBE2075C0 /* Pods-MyTripDiaryUITests-dummy.m */; };
-		B54FBFD15108A24177C6DEADB60BF30F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D711FBA503A6418C1F1C8082286D5985 /* Foundation.framework */; };
-		C028C6B9B3B03DC55F705438E5DC8434 /* Pods-MyTripDiaryTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D15261B98749526019F185DAEA726FF /* Pods-MyTripDiaryTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0FBDA44789D34B6233367500A285B0C2 /* Pods-MyTripDiary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A6F3888234791053E719A0F97F1816 /* Pods-MyTripDiary-dummy.m */; };
+		4761F054D6E14F2AD81EBC44583EC962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		49329CAFC5C6BCEBBBE2B8F34625511D /* Pods-MyTripDiary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97FEDFA91C6B77BA3A9FD85690873C5D /* Pods-MyTripDiary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		544002E2F5A859924235D381CD38BDA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		76FA5544FC1DB61840745F4986168522 /* Pods-MyTripDiaryUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24358A8E6AD10F602594D1E967EA7C08 /* Pods-MyTripDiaryUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99FEFD545D1E6A9E6803088D03BCB2E6 /* Pods-MyTripDiaryTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C8825FA9767826AB4A805BFC613623 /* Pods-MyTripDiaryTests-dummy.m */; };
+		9C03E661BEEB29D8C7CFB5E985B04ED3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		A75C489BDFB2967AE5D72E652FA8B715 /* Pods-MyTripDiaryUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC30FF0B1F269CC1AB4E2E6D3A30041 /* Pods-MyTripDiaryUITests-dummy.m */; };
+		C028C6B9B3B03DC55F705438E5DC8434 /* Pods-MyTripDiaryTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CD27B7E070010C1BCCB5D45F5C3E763A /* Pods-MyTripDiaryTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0E229CDC51802EE017BBECE70D27464A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0B00B2C167CD783351BD1D00BD5AD1F8;
-			remoteInfo = ReachabilitySwift;
-		};
 		7A8562C5A4D826880B0E0CB36E01A415 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -49,56 +36,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		097F9C02E25FAFB2E7C90D442D3A0D55 /* ReachabilitySwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReachabilitySwift-prefix.pch"; sourceTree = "<group>"; };
-		0C817A05D8EF758A967DAE15B2A9D9F8 /* Pods-MyTripDiaryTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiaryTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		0E3A79B65AC3A70515F49BF5011FEC3C /* Pods-MyTripDiary-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyTripDiary-frameworks.sh"; sourceTree = "<group>"; };
-		10DB674B68B432A02697EB1664B9CD4E /* ReachabilitySwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReachabilitySwift-dummy.m"; sourceTree = "<group>"; };
-		1750C70EA0C0E42D9619E3A2B65E48B4 /* ReachabilitySwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ReachabilitySwift.modulemap; sourceTree = "<group>"; };
-		21B03CA622E690725A6626C088E1D09F /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		22D9FAC040B85872E1DC97DB16A172D5 /* Pods-MyTripDiary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyTripDiary.modulemap"; sourceTree = "<group>"; };
-		2307E9C06DF1EB94C806FA0431971BF3 /* Pods-MyTripDiary-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyTripDiary-acknowledgements.markdown"; sourceTree = "<group>"; };
-		243916291A44CE9CE6B7B540A8374EE7 /* ReachabilitySwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReachabilitySwift.xcconfig; sourceTree = "<group>"; };
-		249473D49D6113B4C2E9EC3AF2E7D22F /* Pods-MyTripDiaryUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyTripDiaryUITests-umbrella.h"; sourceTree = "<group>"; };
-		2E4CE859DB4B0074D18BA0521A49800A /* Pods-MyTripDiaryUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiaryUITests-Info.plist"; sourceTree = "<group>"; };
-		2F9CC285C9007B5A7EDCA412C1C388EE /* Pods_MyTripDiaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTripDiaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3680AB33F6B8EB787123A51DBE2075C0 /* Pods-MyTripDiaryUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyTripDiaryUITests-dummy.m"; sourceTree = "<group>"; };
-		3B9C592962F34EFEB8C5E7D621B4BA21 /* Pods-MyTripDiaryUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyTripDiaryUITests.modulemap"; sourceTree = "<group>"; };
-		5735553D12BE41A857B665989033595C /* Pods-MyTripDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiary.debug.xcconfig"; sourceTree = "<group>"; };
-		5DBBC279E52DB617FE9501081FBA5F27 /* Pods-MyTripDiary-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiary-Info.plist"; sourceTree = "<group>"; };
-		60DE6B2F48B6DD293B2E623D2BA0EE57 /* ReachabilitySwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ReachabilitySwift-Info.plist"; sourceTree = "<group>"; };
-		65F39942C6B517D32F2A7D4661A31509 /* Pods-MyTripDiaryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiaryUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6B9C08CCC24664A5E24F8C78DE7509B7 /* Pods-MyTripDiaryTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyTripDiaryTests-dummy.m"; sourceTree = "<group>"; };
-		705D1C033566BBC91FE21DA04585D009 /* Pods-MyTripDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
-		710F36120D2E9ADD2E9A5A2B20B01F7D /* Pods-MyTripDiary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyTripDiary-umbrella.h"; sourceTree = "<group>"; };
-		7D858D865940B17FEA4C128232358632 /* Pods-MyTripDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
-		7ECA6CF9C94B34119636BF21BA0ACDAE /* Pods_MyTripDiaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTripDiaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8771303C365D9D0989DCC5D0F03786AA /* Pods-MyTripDiaryUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiaryUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		88DF1F6ED68DF5B9A9D07A493373FADD /* Pods-MyTripDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiary.release.xcconfig"; sourceTree = "<group>"; };
-		8D15261B98749526019F185DAEA726FF /* Pods-MyTripDiaryTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyTripDiaryTests-umbrella.h"; sourceTree = "<group>"; };
-		97CAC181898ED9798109A68F0D47C885 /* Pods-MyTripDiary-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiary-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A441A17C46C56F263C28D2E4E2553DC7 /* Pods-MyTripDiaryTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiaryTests-Info.plist"; sourceTree = "<group>"; };
-		BD3D4E90A530AFDAD173C65656146937 /* Pods_MyTripDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTripDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD4197183DF18C1E2842F1411D977B37 /* Pods-MyTripDiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C17D922BBFBEE00BA459E65E63CBB0F7 /* Pods-MyTripDiaryTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyTripDiaryTests.modulemap"; sourceTree = "<group>"; };
-		D711FBA503A6418C1F1C8082286D5985 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E1DDE56472C3C9DF16E4AD6EA2992448 /* ReachabilitySwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReachabilitySwift-umbrella.h"; sourceTree = "<group>"; };
-		ED78D4502E6BB0B60B4F532AD7808804 /* Pods-MyTripDiaryUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyTripDiaryUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F4904C2121D407349697EEC458E7A2C0 /* Reachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Sources/Reachability.swift; sourceTree = "<group>"; };
-		F5A04C35B5D0EDC305376545F7CAE6F3 /* Pods-MyTripDiaryTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyTripDiaryTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F64256263F0F1E673BCBD67DF6958420 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		F6EE968254130456936592FAD883A845 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
-		FC87C6C5F5ED5BC94B7E7ADC6CDB52A0 /* Pods-MyTripDiary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyTripDiary-dummy.m"; sourceTree = "<group>"; };
+		0B8378404FF6FAE3EE736C6EDDBCA40B /* Pods-MyTripDiaryUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyTripDiaryUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		16C8825FA9767826AB4A805BFC613623 /* Pods-MyTripDiaryTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyTripDiaryTests-dummy.m"; sourceTree = "<group>"; };
+		24358A8E6AD10F602594D1E967EA7C08 /* Pods-MyTripDiaryUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyTripDiaryUITests-umbrella.h"; sourceTree = "<group>"; };
+		2C13A288838F686EC76631DE0DAEDF55 /* Pods-MyTripDiary-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiary-acknowledgements.plist"; sourceTree = "<group>"; };
+		2F9CC285C9007B5A7EDCA412C1C388EE /* Pods_MyTripDiaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyTripDiaryTests.framework; path = "Pods-MyTripDiaryTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		301B78882B3297731AC93944F6A12B0A /* Pods-MyTripDiaryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiaryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		363C340C208A5DA514B1589B8305ED7F /* Pods-MyTripDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
+		3AD266C412A7D26AF2144AFD499B92C8 /* Pods-MyTripDiary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyTripDiary.modulemap"; sourceTree = "<group>"; };
+		45C2D9D3966E9B61465A6F2E1DE5163E /* Pods-MyTripDiaryUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyTripDiaryUITests.modulemap"; sourceTree = "<group>"; };
+		4BED5AC4170590548CD8727F096E8CFE /* Pods-MyTripDiaryTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyTripDiaryTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4CC30FF0B1F269CC1AB4E2E6D3A30041 /* Pods-MyTripDiaryUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyTripDiaryUITests-dummy.m"; sourceTree = "<group>"; };
+		51A3893A7C6D03A622ED47FC7E83B246 /* Pods-MyTripDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		61A3F761CDADE37D0A5F6B3F13FADE63 /* Pods-MyTripDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		64CACC44EB2864430D7A9ADBAA7EE1DE /* Pods-MyTripDiary-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiary-Info.plist"; sourceTree = "<group>"; };
+		73F46436DB3E4C36F02BC25515CEEFE3 /* Pods-MyTripDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiary.release.xcconfig"; sourceTree = "<group>"; };
+		7ECA6CF9C94B34119636BF21BA0ACDAE /* Pods_MyTripDiaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyTripDiaryUITests.framework; path = "Pods-MyTripDiaryUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97FEDFA91C6B77BA3A9FD85690873C5D /* Pods-MyTripDiary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyTripDiary-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A7B9CCBAB371E416465AC2D5623C37F4 /* Pods-MyTripDiaryTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiaryTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A8073EB32DFF94155FABD852E8EB1504 /* Pods-MyTripDiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyTripDiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B1C63F03FE79B49F70EFBFCED556FF13 /* Pods-MyTripDiary-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyTripDiary-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BD3D4E90A530AFDAD173C65656146937 /* Pods_MyTripDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyTripDiary.framework; path = "Pods-MyTripDiary.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD27B7E070010C1BCCB5D45F5C3E763A /* Pods-MyTripDiaryTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyTripDiaryTests-umbrella.h"; sourceTree = "<group>"; };
+		D2AEE8882159D2D0AA2E3432F0E873FD /* Pods-MyTripDiaryUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiaryUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D77D5DCFC71193919D21047B8AB8540C /* Pods-MyTripDiaryTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyTripDiaryTests.modulemap"; sourceTree = "<group>"; };
+		E8FAE90BF9B22E3D362422ED7FCFF8DB /* Pods-MyTripDiaryTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiaryTests-Info.plist"; sourceTree = "<group>"; };
+		EB14632D3427C99AFCCE872C87388D52 /* Pods-MyTripDiaryUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyTripDiaryUITests-Info.plist"; sourceTree = "<group>"; };
+		F0A6F3888234791053E719A0F97F1816 /* Pods-MyTripDiary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyTripDiary-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		32527AA64370A7D02DA57C80279A40F1 /* Frameworks */ = {
+		2C74DD450BB1541E20CE494E55C72F80 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				169BF456FBD6A0D3B36D5BA851C7A0F9 /* CoreTelephony.framework in Frameworks */,
-				05F256CACC1C186E7A084FE53AD59B85 /* Foundation.framework in Frameworks */,
-				5AECB92F15EBF25826ECF01F64706BE5 /* SystemConfiguration.framework in Frameworks */,
+				9C03E661BEEB29D8C7CFB5E985B04ED3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,158 +92,106 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC4BAFF0D9D0DE61B83C2B225B109BB1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B54FBFD15108A24177C6DEADB60BF30F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+		0EDEDFA7D29D2E063BAD41E5CD1C9091 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				65C892BC3ADB577FE47BB0D4B61FE2E0 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3EB89CF363A481CB6714B7AF090BE18D /* Pods-MyTripDiaryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3B9C592962F34EFEB8C5E7D621B4BA21 /* Pods-MyTripDiaryUITests.modulemap */,
-				ED78D4502E6BB0B60B4F532AD7808804 /* Pods-MyTripDiaryUITests-acknowledgements.markdown */,
-				8771303C365D9D0989DCC5D0F03786AA /* Pods-MyTripDiaryUITests-acknowledgements.plist */,
-				3680AB33F6B8EB787123A51DBE2075C0 /* Pods-MyTripDiaryUITests-dummy.m */,
-				2E4CE859DB4B0074D18BA0521A49800A /* Pods-MyTripDiaryUITests-Info.plist */,
-				249473D49D6113B4C2E9EC3AF2E7D22F /* Pods-MyTripDiaryUITests-umbrella.h */,
-				65F39942C6B517D32F2A7D4661A31509 /* Pods-MyTripDiaryUITests.debug.xcconfig */,
-				7D858D865940B17FEA4C128232358632 /* Pods-MyTripDiaryUITests.release.xcconfig */,
-			);
-			name = "Pods-MyTripDiaryUITests";
-			path = "Target Support Files/Pods-MyTripDiaryUITests";
-			sourceTree = "<group>";
-		};
-		5D0AA215FB49F5F6E11902E9E88FDB66 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AB141DEEC5EED015062C5277880ECC86 /* ReachabilitySwift */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		65C892BC3ADB577FE47BB0D4B61FE2E0 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				F6EE968254130456936592FAD883A845 /* CoreTelephony.framework */,
-				D711FBA503A6418C1F1C8082286D5985 /* Foundation.framework */,
-				F64256263F0F1E673BCBD67DF6958420 /* SystemConfiguration.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		687627F3392A0D5B8BCE5EF12083A79E /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				997DAA09B2D1627EE7A7E95555AC1C53 /* Pods-MyTripDiary */,
-				E04D5A66412E56655E816082AD1B189E /* Pods-MyTripDiaryTests */,
-				3EB89CF363A481CB6714B7AF090BE18D /* Pods-MyTripDiaryUITests */,
+				473D30DC0FC04BEE5CA4C7952AAAF6C1 /* Pods-MyTripDiary */,
+				42EC8F9137247AB39738FCB6D6886D68 /* Pods-MyTripDiaryTests */,
+				9FA1E57D0E7FAAC44380284368C3CBFB /* Pods-MyTripDiaryUITests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		8F3F68B3C039AAC6A565794AC383786B /* Support Files */ = {
+		42EC8F9137247AB39738FCB6D6886D68 /* Pods-MyTripDiaryTests */ = {
 			isa = PBXGroup;
 			children = (
-				1750C70EA0C0E42D9619E3A2B65E48B4 /* ReachabilitySwift.modulemap */,
-				243916291A44CE9CE6B7B540A8374EE7 /* ReachabilitySwift.xcconfig */,
-				10DB674B68B432A02697EB1664B9CD4E /* ReachabilitySwift-dummy.m */,
-				60DE6B2F48B6DD293B2E623D2BA0EE57 /* ReachabilitySwift-Info.plist */,
-				097F9C02E25FAFB2E7C90D442D3A0D55 /* ReachabilitySwift-prefix.pch */,
-				E1DDE56472C3C9DF16E4AD6EA2992448 /* ReachabilitySwift-umbrella.h */,
+				D77D5DCFC71193919D21047B8AB8540C /* Pods-MyTripDiaryTests.modulemap */,
+				4BED5AC4170590548CD8727F096E8CFE /* Pods-MyTripDiaryTests-acknowledgements.markdown */,
+				A7B9CCBAB371E416465AC2D5623C37F4 /* Pods-MyTripDiaryTests-acknowledgements.plist */,
+				16C8825FA9767826AB4A805BFC613623 /* Pods-MyTripDiaryTests-dummy.m */,
+				E8FAE90BF9B22E3D362422ED7FCFF8DB /* Pods-MyTripDiaryTests-Info.plist */,
+				CD27B7E070010C1BCCB5D45F5C3E763A /* Pods-MyTripDiaryTests-umbrella.h */,
+				A8073EB32DFF94155FABD852E8EB1504 /* Pods-MyTripDiaryTests.debug.xcconfig */,
+				363C340C208A5DA514B1589B8305ED7F /* Pods-MyTripDiaryTests.release.xcconfig */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/ReachabilitySwift";
+			name = "Pods-MyTripDiaryTests";
+			path = "Target Support Files/Pods-MyTripDiaryTests";
 			sourceTree = "<group>";
 		};
-		997DAA09B2D1627EE7A7E95555AC1C53 /* Pods-MyTripDiary */ = {
+		473D30DC0FC04BEE5CA4C7952AAAF6C1 /* Pods-MyTripDiary */ = {
 			isa = PBXGroup;
 			children = (
-				22D9FAC040B85872E1DC97DB16A172D5 /* Pods-MyTripDiary.modulemap */,
-				2307E9C06DF1EB94C806FA0431971BF3 /* Pods-MyTripDiary-acknowledgements.markdown */,
-				97CAC181898ED9798109A68F0D47C885 /* Pods-MyTripDiary-acknowledgements.plist */,
-				FC87C6C5F5ED5BC94B7E7ADC6CDB52A0 /* Pods-MyTripDiary-dummy.m */,
-				0E3A79B65AC3A70515F49BF5011FEC3C /* Pods-MyTripDiary-frameworks.sh */,
-				5DBBC279E52DB617FE9501081FBA5F27 /* Pods-MyTripDiary-Info.plist */,
-				710F36120D2E9ADD2E9A5A2B20B01F7D /* Pods-MyTripDiary-umbrella.h */,
-				5735553D12BE41A857B665989033595C /* Pods-MyTripDiary.debug.xcconfig */,
-				88DF1F6ED68DF5B9A9D07A493373FADD /* Pods-MyTripDiary.release.xcconfig */,
+				3AD266C412A7D26AF2144AFD499B92C8 /* Pods-MyTripDiary.modulemap */,
+				B1C63F03FE79B49F70EFBFCED556FF13 /* Pods-MyTripDiary-acknowledgements.markdown */,
+				2C13A288838F686EC76631DE0DAEDF55 /* Pods-MyTripDiary-acknowledgements.plist */,
+				F0A6F3888234791053E719A0F97F1816 /* Pods-MyTripDiary-dummy.m */,
+				64CACC44EB2864430D7A9ADBAA7EE1DE /* Pods-MyTripDiary-Info.plist */,
+				97FEDFA91C6B77BA3A9FD85690873C5D /* Pods-MyTripDiary-umbrella.h */,
+				61A3F761CDADE37D0A5F6B3F13FADE63 /* Pods-MyTripDiary.debug.xcconfig */,
+				73F46436DB3E4C36F02BC25515CEEFE3 /* Pods-MyTripDiary.release.xcconfig */,
 			);
 			name = "Pods-MyTripDiary";
 			path = "Target Support Files/Pods-MyTripDiary";
 			sourceTree = "<group>";
 		};
-		A376425E06A176314C7F5B74F0B97185 /* Products */ = {
+		9FA1E57D0E7FAAC44380284368C3CBFB /* Pods-MyTripDiaryUITests */ = {
 			isa = PBXGroup;
 			children = (
-				BD3D4E90A530AFDAD173C65656146937 /* Pods_MyTripDiary.framework */,
-				2F9CC285C9007B5A7EDCA412C1C388EE /* Pods_MyTripDiaryTests.framework */,
-				7ECA6CF9C94B34119636BF21BA0ACDAE /* Pods_MyTripDiaryUITests.framework */,
-				21B03CA622E690725A6626C088E1D09F /* Reachability.framework */,
+				45C2D9D3966E9B61465A6F2E1DE5163E /* Pods-MyTripDiaryUITests.modulemap */,
+				0B8378404FF6FAE3EE736C6EDDBCA40B /* Pods-MyTripDiaryUITests-acknowledgements.markdown */,
+				D2AEE8882159D2D0AA2E3432F0E873FD /* Pods-MyTripDiaryUITests-acknowledgements.plist */,
+				4CC30FF0B1F269CC1AB4E2E6D3A30041 /* Pods-MyTripDiaryUITests-dummy.m */,
+				EB14632D3427C99AFCCE872C87388D52 /* Pods-MyTripDiaryUITests-Info.plist */,
+				24358A8E6AD10F602594D1E967EA7C08 /* Pods-MyTripDiaryUITests-umbrella.h */,
+				301B78882B3297731AC93944F6A12B0A /* Pods-MyTripDiaryUITests.debug.xcconfig */,
+				51A3893A7C6D03A622ED47FC7E83B246 /* Pods-MyTripDiaryUITests.release.xcconfig */,
 			);
-			name = Products;
+			name = "Pods-MyTripDiaryUITests";
+			path = "Target Support Files/Pods-MyTripDiaryUITests";
 			sourceTree = "<group>";
 		};
-		AB141DEEC5EED015062C5277880ECC86 /* ReachabilitySwift */ = {
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F4904C2121D407349697EEC458E7A2C0 /* Reachability.swift */,
-				8F3F68B3C039AAC6A565794AC383786B /* Support Files */,
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
-			path = ReachabilitySwift;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
-				5D0AA215FB49F5F6E11902E9E88FDB66 /* Pods */,
-				A376425E06A176314C7F5B74F0B97185 /* Products */,
-				687627F3392A0D5B8BCE5EF12083A79E /* Targets Support Files */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				ECD34A6986DE6B6EFCC279D8C06EE3DF /* Products */,
+				0EDEDFA7D29D2E063BAD41E5CD1C9091 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		E04D5A66412E56655E816082AD1B189E /* Pods-MyTripDiaryTests */ = {
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C17D922BBFBEE00BA459E65E63CBB0F7 /* Pods-MyTripDiaryTests.modulemap */,
-				F5A04C35B5D0EDC305376545F7CAE6F3 /* Pods-MyTripDiaryTests-acknowledgements.markdown */,
-				0C817A05D8EF758A967DAE15B2A9D9F8 /* Pods-MyTripDiaryTests-acknowledgements.plist */,
-				6B9C08CCC24664A5E24F8C78DE7509B7 /* Pods-MyTripDiaryTests-dummy.m */,
-				A441A17C46C56F263C28D2E4E2553DC7 /* Pods-MyTripDiaryTests-Info.plist */,
-				8D15261B98749526019F185DAEA726FF /* Pods-MyTripDiaryTests-umbrella.h */,
-				BD4197183DF18C1E2842F1411D977B37 /* Pods-MyTripDiaryTests.debug.xcconfig */,
-				705D1C033566BBC91FE21DA04585D009 /* Pods-MyTripDiaryTests.release.xcconfig */,
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
-			name = "Pods-MyTripDiaryTests";
-			path = "Target Support Files/Pods-MyTripDiaryTests";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECD34A6986DE6B6EFCC279D8C06EE3DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD3D4E90A530AFDAD173C65656146937 /* Pods_MyTripDiary.framework */,
+				2F9CC285C9007B5A7EDCA412C1C388EE /* Pods_MyTripDiaryTests.framework */,
+				7ECA6CF9C94B34119636BF21BA0ACDAE /* Pods_MyTripDiaryUITests.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5A9966291799A5B6BD083A286FE70B4F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				719465AD4CF623E2FB29272EF9207673 /* ReachabilitySwift-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5D055DCFCC804F272522776634263964 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,11 +200,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A99776E4DDBC878FECFB6A0D5B69B32 /* Headers */ = {
+		6331A12EA2061884B6D386008AEA627F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07E8D3A2CEF18A9BB97B635D2AC172AF /* Pods-MyTripDiary-umbrella.h in Headers */,
+				49329CAFC5C6BCEBBBE2B8F34625511D /* Pods-MyTripDiary-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,37 +219,18 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0B00B2C167CD783351BD1D00BD5AD1F8 /* ReachabilitySwift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B24657E92CBC8FA7CA006847CA21F18A /* Build configuration list for PBXNativeTarget "ReachabilitySwift" */;
-			buildPhases = (
-				5A9966291799A5B6BD083A286FE70B4F /* Headers */,
-				3D411AAB6A028F343E1E7C645D74FCFF /* Sources */,
-				32527AA64370A7D02DA57C80279A40F1 /* Frameworks */,
-				B2FBF670A18A50398B40D9642F22242A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ReachabilitySwift;
-			productName = ReachabilitySwift;
-			productReference = 21B03CA622E690725A6626C088E1D09F /* Reachability.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		4B440B1EB3582137201E08D89A7147FA /* Pods-MyTripDiary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 703B2C1607C59EB4471C0CB2833A9FDE /* Build configuration list for PBXNativeTarget "Pods-MyTripDiary" */;
+			buildConfigurationList = 6F255CDD897FE13C43C82A27B1A40BCC /* Build configuration list for PBXNativeTarget "Pods-MyTripDiary" */;
 			buildPhases = (
-				7A99776E4DDBC878FECFB6A0D5B69B32 /* Headers */,
-				ABDF7EF280DF4535035B080E0DA3B287 /* Sources */,
-				DC4BAFF0D9D0DE61B83C2B225B109BB1 /* Frameworks */,
-				F3C9010EB3DAB23928C2E12463E1C80D /* Resources */,
+				6331A12EA2061884B6D386008AEA627F /* Headers */,
+				F078A452AF583147B1901EA6994B21FA /* Sources */,
+				2C74DD450BB1541E20CE494E55C72F80 /* Frameworks */,
+				FEB003FA3D9F00B482B316847306F49F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4094F496E117F0412778DAAB256908F0 /* PBXTargetDependency */,
 			);
 			name = "Pods-MyTripDiary";
 			productName = "Pods-MyTripDiary";
@@ -389,26 +292,18 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = A376425E06A176314C7F5B74F0B97185 /* Products */;
+			productRefGroup = ECD34A6986DE6B6EFCC279D8C06EE3DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				4B440B1EB3582137201E08D89A7147FA /* Pods-MyTripDiary */,
 				5A358940B4D45D0811FB6D3DD05C91EE /* Pods-MyTripDiaryTests */,
 				7FC19A3F35B4374915A9D94D8F1A0FC8 /* Pods-MyTripDiaryUITests */,
-				0B00B2C167CD783351BD1D00BD5AD1F8 /* ReachabilitySwift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B2FBF670A18A50398B40D9642F22242A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D912C757AA974FF4A79313246C653D83 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,7 +318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3C9010EB3DAB23928C2E12463E1C80D /* Resources */ = {
+		FEB003FA3D9F00B482B316847306F49F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -433,15 +328,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3D411AAB6A028F343E1E7C645D74FCFF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84DF7FD988870D75E818E4558D17A070 /* Reachability.swift in Sources */,
-				7C92C8E65C1DA9C0C864D6DCBA207F45 /* ReachabilitySwift-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4593CEFF66B48E2D814F40C9652304C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,11 +344,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABDF7EF280DF4535035B080E0DA3B287 /* Sources */ = {
+		F078A452AF583147B1901EA6994B21FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FF4DAB85F2821006CFE242AD1CFF955 /* Pods-MyTripDiary-dummy.m in Sources */,
+				0FBDA44789D34B6233367500A285B0C2 /* Pods-MyTripDiary-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,12 +361,6 @@
 			target = 4B440B1EB3582137201E08D89A7147FA /* Pods-MyTripDiary */;
 			targetProxy = A9130C6DB39EE808DF0713B7B17056FA /* PBXContainerItemProxy */;
 		};
-		4094F496E117F0412778DAAB256908F0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ReachabilitySwift;
-			target = 0B00B2C167CD783351BD1D00BD5AD1F8 /* ReachabilitySwift */;
-			targetProxy = 0E229CDC51802EE017BBECE70D27464A /* PBXContainerItemProxy */;
-		};
 		48A3966C1414170A4174DBFFC80DA8F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-MyTripDiary";
@@ -490,42 +370,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0708969DAF7DA601DC5EB08742325D9D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 243916291A44CE9CE6B7B540A8374EE7 /* ReachabilitySwift.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReachabilitySwift/ReachabilitySwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReachabilitySwift/ReachabilitySwift-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/ReachabilitySwift/ReachabilitySwift.modulemap";
-				PRODUCT_MODULE_NAME = Reachability;
-				PRODUCT_NAME = Reachability;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		131356BE54884448CA49C07BEDF4BB2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -592,7 +436,7 @@
 		};
 		1545B11A4B92574561C0541FF262FE53 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 705D1C033566BBC91FE21DA04585D009 /* Pods-MyTripDiaryTests.release.xcconfig */;
+			baseConfigurationReference = 363C340C208A5DA514B1589B8305ED7F /* Pods-MyTripDiaryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -629,49 +473,9 @@
 			};
 			name = Release;
 		};
-		28E49D5F6C9B8ED45FDC199EC4C16DE2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88DF1F6ED68DF5B9A9D07A493373FADD /* Pods-MyTripDiary.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		4A2260D7C2770A5201B329617C8EA40A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65F39942C6B517D32F2A7D4661A31509 /* Pods-MyTripDiaryUITests.debug.xcconfig */;
+			baseConfigurationReference = 301B78882B3297731AC93944F6A12B0A /* Pods-MyTripDiaryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -707,9 +511,9 @@
 			};
 			name = Debug;
 		};
-		5C86138FB0F83520E8BAEF818B0FEA4C /* Debug */ = {
+		5151EA2A87AEB5649B501DCBE6E9AA22 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5735553D12BE41A857B665989033595C /* Pods-MyTripDiary.debug.xcconfig */;
+			baseConfigurationReference = 73F46436DB3E4C36F02BC25515CEEFE3 /* Pods-MyTripDiary.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -739,17 +543,19 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		A7A486C8231B9095E29934474A5761A1 /* Debug */ = {
+		E28B43EC1854F6A9281F57C370A7FF88 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 243916291A44CE9CE6B7B540A8374EE7 /* ReachabilitySwift.xcconfig */;
+			baseConfigurationReference = 61A3F761CDADE37D0A5F6B3F13FADE63 /* Pods-MyTripDiary.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -759,22 +565,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReachabilitySwift/ReachabilitySwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReachabilitySwift/ReachabilitySwift-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/ReachabilitySwift/ReachabilitySwift.modulemap";
-				PRODUCT_MODULE_NAME = Reachability;
-				PRODUCT_NAME = Reachability;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -783,7 +590,7 @@
 		};
 		ED6D3603EED13B1F86DE4085B4E1825A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D858D865940B17FEA4C128232358632 /* Pods-MyTripDiaryUITests.release.xcconfig */;
+			baseConfigurationReference = 51A3893A7C6D03A622ED47FC7E83B246 /* Pods-MyTripDiaryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -882,7 +689,7 @@
 		};
 		FC552BD0D3AA9BEC8A74A8133A67ABA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD4197183DF18C1E2842F1411D977B37 /* Pods-MyTripDiaryTests.debug.xcconfig */;
+			baseConfigurationReference = A8073EB32DFF94155FABD852E8EB1504 /* Pods-MyTripDiaryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -939,11 +746,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		703B2C1607C59EB4471C0CB2833A9FDE /* Build configuration list for PBXNativeTarget "Pods-MyTripDiary" */ = {
+		6F255CDD897FE13C43C82A27B1A40BCC /* Build configuration list for PBXNativeTarget "Pods-MyTripDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C86138FB0F83520E8BAEF818B0FEA4C /* Debug */,
-				28E49D5F6C9B8ED45FDC199EC4C16DE2 /* Release */,
+				E28B43EC1854F6A9281F57C370A7FF88 /* Debug */,
+				5151EA2A87AEB5649B501DCBE6E9AA22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -953,15 +760,6 @@
 			buildConfigurations = (
 				4A2260D7C2770A5201B329617C8EA40A /* Debug */,
 				ED6D3603EED13B1F86DE4085B4E1825A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B24657E92CBC8FA7CA006847CA21F18A /* Build configuration list for PBXNativeTarget "ReachabilitySwift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A7A486C8231B9095E29934474A5761A1 /* Debug */,
-				0708969DAF7DA601DC5EB08742325D9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

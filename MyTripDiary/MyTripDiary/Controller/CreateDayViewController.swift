@@ -10,9 +10,6 @@ import UIKit
 import MapKit
 import CoreData
 
-
-// https://uxplanet.org/modality-the-one-ux-concept-you-need-to-understand-when-designing-intuitive-user-interfaces-e5e941c7acb1
-// Want to have a full-screen modal view
 class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var dataPicker: UIDatePicker!
     @IBOutlet weak var daySummary: UITextView!
@@ -53,7 +50,7 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        NetworkManager.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +69,12 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         // set the title for SaveButton
         saveButton.setTitle("Delete Pin", for: UIControl.State.disabled)
         saveButton.setTitle("Save", for: UIControl.State.normal)
+        
+        // Add gesture to dismiss keyboard when touch on view
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    
     }
     
     private func initViewData() {
@@ -146,8 +149,12 @@ class CreateDayViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             updateNavBarRightButton(isEdit:false)
             isDeletePinMode = false
             saveButton.isEnabled = true
-            saveButton.backgroundColor = UIColor(named: "Sky")
+            saveButton.backgroundColor = UIColor(named: "Cyan")
         }
+    }
+    
+    @objc private func endEditing() {
+        view.endEditing(true)
     }
     
     @objc private func addPinToTheMap(longPressGestureRecongnizer:UIGestureRecognizer) {
@@ -364,6 +371,11 @@ extension CreateDayViewController:UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n")
+        {
+            textView.resignFirstResponder()
+        }
+        
         return range.location < 500
     }
 }

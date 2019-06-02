@@ -13,8 +13,8 @@ import MapKit
 private let reuseIdentifier = "PhotoCollectionViewCell"
 
 class PhotosCollectionViewController: UIViewController {
-
-    let activityView = UIActivityIndicatorView(style: .gray)
+    
+    let indicator = UIActivityIndicatorView(style: .gray)
     // longtitude and latitude from the PIN
     var lat:Double!
     
@@ -49,24 +49,26 @@ class PhotosCollectionViewController: UIViewController {
         if flickrImages.count == 0 {
             showNoDataLabel(show:true)
         }
-        
-        activityView.hidesWhenStopped = true
-        activityView.center = photoCollectionView.center
-        photoCollectionView.addSubview(activityView)
+        // Set Activity indicator
+        setActivityIndicator()
         // see if we can get the name from the Map's coordinate
         getPlaceName()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear!")
-        // Set the delegate and datasource for the Collection View
-       
-        
-        // showPhotos()
+    }
+    
+    private func setActivityIndicator() {
+        indicator.color = .black
+        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 10.0, height: 10.0)
+        //indicator.center = photoCollectionView.center
+        photoCollectionView.addSubview(indicator)
+        indicator.bringSubviewToFront(photoCollectionView)
     }
     
     private func showPhotos() {
-         let endpoint:URL
+        let endpoint:URL
         // request Flickr photos
         print("Request Flickr photos using Flickr search request API")
         if let id = userIDTextField.text {
@@ -74,48 +76,36 @@ class PhotosCollectionViewController: UIViewController {
         } else {
             endpoint =  FlickrClient.FlickrEndpoint.getSearch(lat: lat, lon: lon, per_page: 100, user_id: nil).url
         }
-            // user id can be nil
+        // user id can be nil
         let photoSearch = PhotoSearch(lat: lat, lon: lon, api_key: FlickrAPI.key, in_gallery: true, per_page: 100, page:1)
         FlickrClient.photoGetRequest(endpoint: endpoint, photoSearch: photoSearch, responseType: PhotoSearchResponse.self, completionHandler: handleGetResponse(res:error:))
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     @IBAction func load(_ sender: Any) {
         
         showNoDataLabel(show: false)
-        photoCollectionView.superview?.bringSubviewToFront(activityView)
-        activityView.startAnimating()
-        
-        flickrImages.removeAll() // reset the array to store new pictures
+        indicator.startAnimating()
+        //flickrImages.removeAll() // reset the array to store new pictures
         showPhotos() // Send Flickr API Request to get the photos
         // TODO: Send Flickr Request to get photos
-       // photoCollectionView.reloadData()
+        // photoCollectionView.reloadData()
     }
-
+    
     // MARK: Fetch Flickr photos request's handler methods
     func handleGetResponse(res:PhotoSearchResponse?, error:Error?) {
         guard let response = res else {
             let ac = UIAlertController(title: "Search Flickr photos", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
             //  // Show No Image View
-           // showNoDataLabel(show:true)
+            // showNoDataLabel(show:true)
             // Stop Animation for the Indicator
-           // activityView.stopAnimating()
+            // activityView.stopAnimating()
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
             UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (action) in
                 // Show No Image View
                 self.showNoDataLabel(show:true)
                 // Stop Animation for the Indicator
-                self.activityView.stopAnimating()
+                self.indicator.stopAnimating()
             }
             
             
@@ -130,7 +120,7 @@ class PhotosCollectionViewController: UIViewController {
             // Show No Image View
             showNoDataLabel(show:true)
             // Stop Animation for the Indicator
-            activityView.stopAnimating()
+            indicator.stopAnimating()
             return
         }
         
@@ -138,9 +128,12 @@ class PhotosCollectionViewController: UIViewController {
         // We have Flickr photos
         showNoDataLabel(show:false)
         // let myGroup = DispatchGroup()
-
+        
+        if flickrImages.count > 0 {
+            flickrImages.removeAll() // reset the array to store new pictures
+        }
         for photoInfo in response.photos.photo! {
-           // myGroup.enter()
+            // myGroup.enter()
             let photoURL:URL = FlickrClient.mapPhotoToURL(id: photoInfo.id, secret: photoInfo.secret, farmid: "\(photoInfo.farm)", serverid: photoInfo.server)
             // Download the photo from URL, save photo to core data (Optional - will do it later if have time!)
             print("map photo id: \(photoInfo.id)")
@@ -148,21 +141,21 @@ class PhotosCollectionViewController: UIViewController {
             // Call another method to handle the photo download from the URL
             FlickrClient.photoImageDownload(url: photoURL, completionHandler: HandlePhotoSave(data:error:))
             
-//            myGroup.notify(queue: .main) {
-//                print("=======Finished all download =======")
-//            }
+            //            myGroup.notify(queue: .main) {
+            //                print("=======Finished all download =======")
+            //            }
         }
         
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1000) { [weak self] in
-//            self?.photoCollectionView.reloadData()
-//            self?.activityView.stopAnimating()
-//        }
+        //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1000) { [weak self] in
+        //            self?.photoCollectionView.reloadData()
+        //            self?.activityView.stopAnimating()
+        //        }
         
-       // DispatchQueue.main.async {
+        // DispatchQueue.main.async {
         print(" Before view reload what is the count in the photo array? \(self.flickrImages.count)")
-         self.photoCollectionView.reloadData()
-         self.activityView.stopAnimating()
-       // }
+        self.photoCollectionView.reloadData()
+        self.indicator.stopAnimating()
+        // }
     }
     
     func HandlePhotoSave(data:Data?, error:Error?) {
@@ -178,6 +171,7 @@ class PhotosCollectionViewController: UIViewController {
             self.present(ac, animated: true, completion: nil)
             return
         }
+        
         
         let photoImage = UIImage(data: data)
         // Save image
@@ -195,7 +189,7 @@ class PhotosCollectionViewController: UIViewController {
     }
     
     private func setNoDataLabel() {
-    // Setup No Data label
+        // Setup No Data label
         let frame = CGRect(x: 0, y: 0, width: photoCollectionView.bounds.width, height: photoCollectionView.bounds.height)
         noDataLabel = UILabel(frame: frame)
         view.addSubview(noDataLabel)
@@ -261,13 +255,13 @@ extension PhotosCollectionViewController:UICollectionViewDataSource,UICollection
         // TODO: Configure the cell - need to add the image view under the context view
         print("debug set image to collection view at : \(indexPath.row)")
         if let image = flickrImages[indexPath.row] {
-         //cell.flickrImage.image = image
-         cell.set(image: image)
-         cell.noImage.isHidden = true
+            //cell.flickrImage.image = image
+            cell.set(image: image)
+            cell.noImage.isHidden = true
         } else {
-          cell.set(image: nil)
-          // cell.noImage.isHidden = false
-          // cell.noImage.text = "no image"
+            cell.set(image: nil)
+            // cell.noImage.isHidden = false
+            // cell.noImage.text = "no image"
         }
         return cell
     }
@@ -301,18 +295,18 @@ extension PhotosCollectionViewController:UICollectionViewDataSource,UICollection
         present(vc, animated: true, completion: nil)
     }
     
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
+        return false
+    }
+    
     func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return true
-     }
-     
+        return true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         print("CollectionView performAction method")
-     }
+    }
     
     
     private func getPlaceName() {
@@ -326,29 +320,9 @@ extension PhotosCollectionViewController:UICollectionViewDataSource,UICollection
                 
                 // Place details
                 guard let placeMark = placemarks?.first else { return }
-                
-                // Location name
-                if let locationName = placeMark.location {
-                    print(locationName)
+                if let city = placeMark.subAdministrativeArea, let country = placeMark.country {
+                    self.placeName.text = "\(city) - \(country)"
                 }
-                // Street address
-                if let street = placeMark.thoroughfare {
-                    print(street)
-                }
-                // City
-                if let city = placeMark.subAdministrativeArea {
-                    print(city)
-                }
-                // Zip code
-                if let zip = placeMark.isoCountryCode {
-                    print(zip)
-                }
-                // Country
-                if let country = placeMark.country {
-                    print(country)
-                }
-                
-                self.placeName.text = "\(String(describing: placeMark.subAdministrativeArea)) \(String(describing: placeMark.country))"
         })
         
     }
@@ -362,7 +336,7 @@ extension PhotosCollectionViewController:UICollectionViewDataSource,UICollection
         presentationController.sourceView = view
         presentationController.sourceRect = view.bounds
         presentationController.permittedArrowDirections = [.down, .up]
-        self.present(controller?, animated: true)
+        // self.present(controller?, animated: true)
     }
 }
 

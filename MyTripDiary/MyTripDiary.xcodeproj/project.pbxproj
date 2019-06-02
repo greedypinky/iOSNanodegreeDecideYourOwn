@@ -3,19 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0D31628CC7612890EBBAFB6A /* Pods_MyTripDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3757FD8FE11D21E1F4A3446 /* Pods_MyTripDiaryTests.framework */; };
-		994C18133FE2A9DEF45256DD /* Pods_MyTripDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57B68589F0887AC31E00C93 /* Pods_MyTripDiary.framework */; };
 		AD25E27AAA98CC05909D4CCE /* Pods_MyTripDiaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678D8BC1429E18BA25BC71A5 /* Pods_MyTripDiaryUITests.framework */; };
 		D801F1AC228F6F5B0089113D /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801F1AB228F6F5B0089113D /* TripCell.swift */; };
 		D801F1AE228F6F690089113D /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801F1AD228F6F690089113D /* DayCell.swift */; };
 		D801F1B1228F6F940089113D /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801F1B0228F6F940089113D /* Cell.swift */; };
 		F70195FC229E1CD100065CA5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70195FB229E1CD100065CA5 /* PhotoViewController.swift */; };
 		F7019600229E56FC00065CA5 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70195FF229E56FC00065CA5 /* PhotoCollectionViewCell.swift */; };
-		F701960222A23F0E00065CA5 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F701960122A23F0E00065CA5 /* Reachability.framework */; };
 		F72F4CA9227FB54500D5D9F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CA8227FB54500D5D9F7 /* AppDelegate.swift */; };
 		F72F4CAE227FB54500D5D9F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72F4CAC227FB54500D5D9F7 /* Main.storyboard */; };
 		F72F4CB1227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F72F4CAF227FB54500D5D9F7 /* MyTripDiary.xcdatamodeld */; };
@@ -65,7 +63,6 @@
 		F70195FB229E1CD100065CA5 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		F70195FF229E56FC00065CA5 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F701960122A23F0E00065CA5 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F701960322A23F1500065CA5 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72F4CA5227FB54400D5D9F7 /* MyTripDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTripDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72F4CA8227FB54500D5D9F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F72F4CAD227FB54500D5D9F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,15 +88,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F72F4CA2227FB54400D5D9F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F701960222A23F0E00065CA5 /* Reachability.framework in Frameworks */,
-				994C18133FE2A9DEF45256DD /* Pods_MyTripDiary.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F72F4CB9227FB54700D5D9F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,7 +161,6 @@
 		F72F4C9C227FB54400D5D9F7 = {
 			isa = PBXGroup;
 			children = (
-				F701960322A23F1500065CA5 /* Reachability.framework */,
 				F72F4CA7227FB54400D5D9F7 /* MyTripDiary */,
 				F72F4CBF227FB54700D5D9F7 /* MyTripDiaryTests */,
 				F72F4CCA227FB54700D5D9F7 /* MyTripDiaryUITests */,
@@ -297,11 +284,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F72F4CD0227FB54700D5D9F7 /* Build configuration list for PBXNativeTarget "MyTripDiary" */;
 			buildPhases = (
-				2A020C64C38C6E283DF158DB /* [CP] Check Pods Manifest.lock */,
 				F72F4CA1227FB54400D5D9F7 /* Sources */,
-				F72F4CA2227FB54400D5D9F7 /* Frameworks */,
 				F72F4CA3227FB54400D5D9F7 /* Resources */,
-				F6ABFC3219A827665420489D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -463,45 +447,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2A020C64C38C6E283DF158DB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyTripDiary-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6ABFC3219A827665420489D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyTripDiary/Pods-MyTripDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -745,6 +690,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				PODS_ROOT = "";
 				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -766,6 +712,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				PODS_ROOT = "";
 				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -786,6 +733,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				PODS_ROOT = "";
 				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiaryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -806,6 +754,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				PODS_ROOT = "";
 				PRODUCT_BUNDLE_IDENTIFIER = greedypinky.MyTripDiaryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

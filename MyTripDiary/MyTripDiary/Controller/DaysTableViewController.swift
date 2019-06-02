@@ -33,29 +33,36 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         df.dateStyle = DateFormatter.Style.medium
         return df
     }()
-
+    // activity indicator
+    var indicator = UIActivityIndicatorView(style: .gray)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         addNavigationButton()
         setupFetchedResultsController()
-        //setupFetchedResultsController()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setActivityIndicator()
+        indicator.startAnimating()
+        setupFetchedResultsController()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("############ DaysTableViewController ##############")
         print("viewWillAppear is called!")
         tableView.register(DayCell.self, forCellReuseIdentifier: "daycell")
+        
+        // Fetch data from Core Data
         setupFetchedResultsController()
         // addNavigationButton()
         tableView.reloadData()
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            // deselect the row when table re-appear
+            tableView.deselectRow(at: indexPath, animated: false)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
         
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -70,95 +77,95 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     // MARK: - Table view data source
-/*
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        let numOfSection = fetchedResultsController.sections?.count ?? 0
-        print("number of section \(numOfSection)")
-        return numOfSection
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
-        print("number of objects \(numOfRows) in section \(section)")
-        return numOfRows
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let day = fetchedResultsController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
-        var label:String = ""
-        if let date = day.date {
-            let dayWithFormat = dateFormatter.string(from: date)
-            // show Day 1 05/12/2019
-            label = "Day \(indexPath) \(dayWithFormat)"
-            
-        } else {
-            label = "Day \(indexPath)"
-        }
-        
-        return cell
-    }
-    */
     /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
+     func numberOfSections(in tableView: UITableView) -> Int {
+     // #warning Incomplete implementation, return the number of sections
+     let numOfSection = fetchedResultsController.sections?.count ?? 0
+     print("number of section \(numOfSection)")
+     return numOfSection
+     }
+     
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     // #warning Incomplete implementation, return the number of rows
+     let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
+     print("number of objects \(numOfRows) in section \(section)")
+     return numOfRows
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let day = fetchedResultsController.object(at: indexPath)
+     let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
+     var label:String = ""
+     if let date = day.date {
+     let dayWithFormat = dateFormatter.string(from: date)
+     // show Day 1 05/12/2019
+     label = "Day \(indexPath) \(dayWithFormat)"
+     
+     } else {
+     label = "Day \(indexPath)"
+     }
+     
+     return cell
+     }
+     */
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+     
+     // Configure the cell...
+     
+     return cell
+     }
+     */
+    
+    /*
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     
     // Override to support editing the table view.
     /*
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("editing style is? \(editingStyle)")
-        switch editingStyle {
-            // delete the row
-            case .delete:
-                print("In delete case >>>>>>")
-                deleteDay(at: indexPath)
-            default:()
-        }
-
-    } */
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     print("editing style is? \(editingStyle)")
+     switch editingStyle {
+     // delete the row
+     case .delete:
+     print("In delete case >>>>>>")
+     deleteDay(at: indexPath)
+     default:()
+     }
+     
+     } */
     
-
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     // MARK: - Core Data:add and delete Day function
     
@@ -230,18 +237,20 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         // #warning Incomplete implementation, return the number of rows
         let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
         print("DaysTableViewController Data Source Delegate: number of objects \(numOfRows) in section \(section)")
+        if numOfRows == 0 {
+            indicator.stopAnimating()
+        }
         return numOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let day = fetchedResultsController.object(at: indexPath)
-       // let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
+        // let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath)
         var label:String = ""
         if let date = day.date {
             let dayWithFormat = dateFormatter.string(from: date)
-            // show Day 1 05/12/2019
-            
+            // show Day 1 05/12/2019 as title
             label = "Day \(indexPath.row) \(dayWithFormat)"
             
         } else {
@@ -249,7 +258,7 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
         print("what is the label? \(label)")
         //cell.title?.text = label
-        cell.detailTextLabel?.text = "TESTING 1234"
+        //cell.detailTextLabel?.text = "TESTING 1234"
         cell.textLabel?.text = label
         return cell
     }
@@ -291,78 +300,92 @@ class DaysTableViewController: UIViewController, UITableViewDataSource, UITableV
         present(vc, animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // check if last row is loaded, stop the indicator animation
+        if let lastrow = tableView.indexPathsForVisibleRows?.last {
+            indicator.stopAnimating()
+        }
+    }
+    
+    private func setActivityIndicator() {
+        indicator.color = .black
+        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 10.0, height: 10.0)
+        indicator.center = tableView.center
+        tableView.addSubview(indicator)
+        indicator.bringSubviewToFront(tableView)
+    }
     
 }
 
 /*
-extension DaysTableViewController:UITableViewDataSource {
-    
-    // MARK: - Table view data source
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        let numOfSection = fetchedResultsController.sections?.count ?? 1
-        print("DaysTableViewController Data Source Delegate: number of section \(numOfSection)")
-        return numOfSection
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
-        print("DaysTableViewController Data Source Delegate: number of objects \(numOfRows) in section \(section)")
-        return numOfRows
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let day = fetchedResultsController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
-        var label:String = ""
-        if let date = day.date {
-            let dayWithFormat = dateFormatter.string(from: date)
-            // show Day 1 05/12/2019
-            label = "Day \(indexPath.row) \(dayWithFormat)"
-            
-        } else {
-            label = "Day \(indexPath.row)"
-        }
-        print("what is the label? \(label)")
-        cell.title?.text = label
-        return cell
-    }
-    
-    // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("editing style is? \(editingStyle)")
-        switch editingStyle {
-        // delete the row
-        case .delete:
-            print("In delete case >>>>>>")
-            deleteDay(at: indexPath)
-        default:()
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc:UINavigationController = storyboard?.instantiateViewController(withIdentifier: "createDayNavigationController") as! UINavigationController
-        let createDayVC = vc.topViewController as! CreateDayViewController
-        createDayVC.editMode = true
-        // TODO: Need to get the Core Datainfo and init the View as well !!
-        let selectedDay:Day = fetchedResultsController.object(at: indexPath)
-        // ... set data
-        createDayVC.dataPicker.date = selectedDay.date!
-        createDayVC.daySummary.text = selectedDay.summary
-        createDayVC.trip = trip
-        present(vc, animated: true, completion: nil)
-    }
-    
-    
-}
-
-extension DaysTableViewController:UITableViewDelegate {
-    
-    
-}
+ extension DaysTableViewController:UITableViewDataSource {
+ 
+ // MARK: - Table view data source
+ 
+ func numberOfSections(in tableView: UITableView) -> Int {
+ // #warning Incomplete implementation, return the number of sections
+ let numOfSection = fetchedResultsController.sections?.count ?? 1
+ print("DaysTableViewController Data Source Delegate: number of section \(numOfSection)")
+ return numOfSection
+ }
+ 
+ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+ // #warning Incomplete implementation, return the number of rows
+ let numOfRows = fetchedResultsController.sections?[section].numberOfObjects ?? 0
+ print("DaysTableViewController Data Source Delegate: number of objects \(numOfRows) in section \(section)")
+ return numOfRows
+ }
+ 
+ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ let day = fetchedResultsController.object(at: indexPath)
+ let cell = tableView.dequeueReusableCell(withIdentifier: "daycell", for: indexPath) as! DayCell
+ var label:String = ""
+ if let date = day.date {
+ let dayWithFormat = dateFormatter.string(from: date)
+ // show Day 1 05/12/2019
+ label = "Day \(indexPath.row) \(dayWithFormat)"
+ 
+ } else {
+ label = "Day \(indexPath.row)"
+ }
+ print("what is the label? \(label)")
+ cell.title?.text = label
+ return cell
+ }
+ 
+ // Override to support editing the table view.
+ func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+ print("editing style is? \(editingStyle)")
+ switch editingStyle {
+ // delete the row
+ case .delete:
+ print("In delete case >>>>>>")
+ deleteDay(at: indexPath)
+ default:()
+ }
+ 
+ }
+ 
+ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+ let vc:UINavigationController = storyboard?.instantiateViewController(withIdentifier: "createDayNavigationController") as! UINavigationController
+ let createDayVC = vc.topViewController as! CreateDayViewController
+ createDayVC.editMode = true
+ // TODO: Need to get the Core Datainfo and init the View as well !!
+ let selectedDay:Day = fetchedResultsController.object(at: indexPath)
+ // ... set data
+ createDayVC.dataPicker.date = selectedDay.date!
+ createDayVC.daySummary.text = selectedDay.summary
+ createDayVC.trip = trip
+ present(vc, animated: true, completion: nil)
+ }
+ 
+ 
+ }
+ 
+ extension DaysTableViewController:UITableViewDelegate {
+ 
+ 
+ }
  */
 
 // MARK: NSFetchedResultsControllerDelete to keep the tableview in sync with the core data update
@@ -377,7 +400,7 @@ extension DaysTableViewController:NSFetchedResultsControllerDelegate {
             tableView.insertRows(at: [newIndexPath!], with: .fade)
             break
         case .delete:
-             print("didChange delegate callback: delete at indexPath \(indexPath)")
+            print("didChange delegate callback: delete at indexPath \(indexPath)")
             tableView.deleteRows(at: [indexPath!], with: .fade)
             break
         case .update:
