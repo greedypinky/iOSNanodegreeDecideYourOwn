@@ -14,5 +14,9 @@ This is an App which allows user to record the trip diary or planner for a trip.
 # Source code from github
 - _https://github.com/greedypinky/iOSNanodegreeDecideYourOwn_
 
+# How to run the project
+1. Download project from _https://github.com/greedypinky/iOSNanodegreeDecideYourOwn_
+2. double-click MyTripDiary.xcodeproj to open project from XCode.
+3. Run the Project.
 
 

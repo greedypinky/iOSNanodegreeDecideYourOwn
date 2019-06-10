@@ -51,6 +51,8 @@ class PhotosCollectionViewController: UIViewController {
         }
         // Set Activity indicator
         setActivityIndicator()
+        // Set to have the built-in clear button for the textField.
+        userIDTextField.clearButtonMode = UITextField.ViewMode.always
         // see if we can get the name from the Map's coordinate
         getPlaceName()
     }
@@ -62,8 +64,9 @@ class PhotosCollectionViewController: UIViewController {
     private func setActivityIndicator() {
         indicator.color = .black
         indicator.frame = CGRect(x: 0.0, y: 0.0, width: 10.0, height: 10.0)
-        //indicator.center = photoCollectionView.center
+        // indicator.center = photoCollectionView.center
         photoCollectionView.addSubview(indicator)
+        indicator.center = CGPoint(x:photoCollectionView.bounds.size.width/2.0, y:photoCollectionView.bounds.size.height/2.0)
         indicator.bringSubviewToFront(photoCollectionView)
     }
     
